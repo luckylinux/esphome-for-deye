@@ -18,13 +18,40 @@ I can only refer to this powerforum thread. https://powerforum.co.za/topic/8646-
 * ESP32 / ESP32S3
 * TTL To RS485 Module with automatic flow control
 
-## Installation
+## Installation process
 1. Create your esp32 in esphome in home assistant
 2. Upload the your basis config via. usb from pc.
 3. Test wireless upload
 4. Copy all content (make sure you have your wifi ssid&password in the secrets)
 5. Edit the sensors in the config if you like
 6. Upload wireless
+
+## Set Device List
+Set your Device List in `devices.sh`.
+
+## Set Secrets
+Copy `secrets.sh.example` to `secrets.sh`:
+
+```
+cp secrets.sh.example secrets.sh
+```
+
+Set your Secrets for WiFi, MQTT, OTA, Web_Server, etc.
+
+## Set up Build Environment and Build & Run ESPHome
+The whole process is automated.
+
+This has been tested on Ubuntu GNU/Linux but it should also work on Debian GNU/Linux and similar Distributions.
+
+Otherwise you'll need to adapt the `apt` command and the package to install `python3.11-venv` to provide the `venv` python module.
+
+It might already be installed in your system "by default" with the "standard" Python Distribution.
+
+Run:
+
+```
+./build.sh
+```
 
 ## Hardware diagram
 RX / TX between esp and ttl converter way have to be swapped. This seems to be a little different from espboard to espboard.
