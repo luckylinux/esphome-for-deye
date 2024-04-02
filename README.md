@@ -15,7 +15,7 @@ Sunsync & other 1phase inverters as they use different addresses and have differ
 I can only refer to this powerforum thread. https://powerforum.co.za/topic/8646-my-sunsynk-8kw-data-collection-setup/
 
 ## Requirements
-* ESP32
+* ESP32 / ESP32S3
 * TTL To RS485 Module with automatic flow control
 
 ## Installation

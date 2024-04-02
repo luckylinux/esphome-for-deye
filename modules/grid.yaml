@@ -53,8 +53,54 @@ number:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Total Grid Power"
-    id: ${device_type}_Total_Grid_Power
+    name: "${device_type}-Grid Power Factor"
+    id: ${device_type}_Grid_PF
+    register_type: holding
+    address: 621
+    unit_of_measurement: "-"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 1000
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Grid Power L1"
+    id: ${device_type}_Grid_Power_L1
+    register_type: holding
+    address: 622
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Grid Power L2"
+    id: ${device_type}_Grid_Power_L2
+    register_type: holding
+    address: 623
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Grid Power L3"
+    id: ${device_type}_Grid_Power_L3
+    register_type: holding
+    address: 624
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Grid Total Power"
+    id: ${device_type}_Grid_Total_Power
     register_type: holding
     address: 625
     unit_of_measurement: "W"
