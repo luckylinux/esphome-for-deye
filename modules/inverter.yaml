@@ -1,2 +1,157 @@
 sensors:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Voltage L1"
+    id: ${device_type}_Inverter_Output_Phase_Voltage_L1
+    register_type: holding
+    address: 627
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
 
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Voltage L2"
+    id: ${device_type}_Inverter_Output_Phase_Voltage_L2
+    register_type: holding
+    address: 628
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Voltage L3"
+    id: ${device_type}_Inverter_Output_Phase_Voltage_L3
+    register_type: holding
+    address: 629
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Current L1"
+    id: ${device_type}_Inverter_Output_Phase_Current_L1
+    register_type: holding
+    address: 630
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Current L2"
+    id: ${device_type}_Inverter_Output_Phase_Current_L2
+    register_type: holding
+    address: 631
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Current L3"
+    id: ${device_type}_Inverter_Output_Phase_Current_L3
+    register_type: holding
+    address: 632
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Power L1"
+    id: ${device_type}_Inverter_Output_Phase_Power_L1
+    register_type: holding
+    address: 633
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Power L2"
+    id: ${device_type}_Inverter_Output_Phase_Power_L2
+    register_type: holding
+    address: 634
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Phase Power L3"
+    id: ${device_type}_Inverter_Output_Phase_Power_L3
+    register_type: holding
+    address: 635
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Total Power"
+    id: ${device_type}_Inverter_Output_Total_Power
+    register_type: holding
+    address: 636
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Total Apparent Power"
+    id: ${device_type}_Inverter_Output_Total_Apparent_Power
+    register_type: holding
+    address: 637
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Inverter Output Total Apparent Power"
+    id: ${device_type}_Inverter_Output_Total_Apparent_Power
+    register_type: holding
+    address: 637
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-inverter-frequency"
+    id: ${device_type}_inverter_frequency
+    register_type: holding
+    address: 638
+    unit_of_measurement: "Hz"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+    value_type: U_WORD
