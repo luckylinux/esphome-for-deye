@@ -251,3 +251,46 @@ sensor:
     filters:
       - multiply: 0.1
     value_type: U_WORD
+
+  
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Line Voltage L1L2"
+    id: ${device_type}_Grid_Line_L1L2
+    register_type: holding
+    address: 601
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Line Voltage L2"
+    id: ${device_type}_Grid_Line_Voltage_L2L3
+    register_type: holding
+    address: 602
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Line Voltage L3L1"
+    id: ${device_type}_Grid_Line_Voltage_L3L1
+    register_type: holding
+    address: 603
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
