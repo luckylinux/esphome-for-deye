@@ -27,6 +27,9 @@ packages:
   general: !include modules/general.yaml
   status: !include modules/status.yaml
   internal: !include modules/internal.yaml # Internal CTs Current/Power Measurement
+  inverter: !include modules/inverter.yaml
+  ups: !include modules/ups.yaml
+
   #
   # Enable for grid-connected systems
   #grid: !include modules/grid.yaml

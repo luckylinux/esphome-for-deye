@@ -1,0 +1,44 @@
+sensors:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-UPS Load Side Phase Power L1"
+    id: ${device_type}_UPS_Load_Side_Phase_Power_L1
+    register_type: holding
+    address: 640
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-UPS Load Side Phase Power L2"
+    id: ${device_type}_UPS_Load_Side_Phase_Power_L2
+    register_type: holding
+    address: 641
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-UPS Load Side Phase Power L3"
+    id: ${device_type}_UPS_Load_Side_Phase_Power_L3
+    register_type: holding
+    address: 642
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-UPS Load Side Total Power"
+    id: ${device_type}_UPS_Load_Side_Total_Power
+    register_type: holding
+    address: 643
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: U_WORD
