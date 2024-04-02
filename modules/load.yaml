@@ -1,8 +1,122 @@
 sensor:
-  - platform: modbus_controller # Load totalpower
+    - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Load totalpower"
-    id: ${device_type}_Load_totalpower
+    name: "${device_type}-Load Phase Voltage L1"
+    id: ${device_type}_Load_Phase_Voltage_L1
+    register_type: holding
+    address: 644
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Voltage L2"
+    id: ${device_type}_Load_Phase_Voltage_L2
+    register_type: holding
+    address: 645
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Voltage L3"
+    id: ${device_type}_Load_Phase_Voltage_L3
+    register_type: holding
+    address: 646
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  # To be Tested - It states "No Use" in the Registers References
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Current L1"
+    id: ${device_type}_Load_Phase_Current_L1
+    register_type: holding
+    address: 647
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  # To be Tested - It states "No Use" in the Registers References
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Current L2"
+    id: ${device_type}_Load_Phase_Current_L2
+    register_type: holding
+    address: 648
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  # To be Tested - It states "No Use" in the Registers References
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Current L3"
+    id: ${device_type}_Load_Phase_Current_L3
+    register_type: holding
+    address: 649
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Power L1"
+    id: ${device_type}_Load_Phase_Power_L1
+    register_type: holding
+    address: 650
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Power L2"
+    id: ${device_type}_Load_Phase_Power_L2
+    register_type: holding
+    address: 651
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Phase Power L3"
+    id: ${device_type}_Load_Phase_Power_L3
+    register_type: holding
+    address: 652
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load Total Power"
+    id: ${device_type}_Load_Total_Power
     register_type: holding
     address: 653
     unit_of_measurement: "W"
