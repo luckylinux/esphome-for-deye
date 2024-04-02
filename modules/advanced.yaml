@@ -81,3 +81,5 @@ binary_sensor:
 #https://esphome.io/components/switch/modbus_controller.html
 #https://esphome.io/components/text_sensor/modbus_controller.html
 # Particularly: raw_encode
+
+# Most promising using lambda: https://github.com/esphome/issues/issues/3857#issuecomment-1591016833
