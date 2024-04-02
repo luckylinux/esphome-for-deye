@@ -1,0 +1,33 @@
+substitutions:
+  name: !secret host_name                                            # Name in ESPhome
+  device_description: "Esphome component for Deye sun-12k-sg04lp3"   # Description in ESPhome
+  modbus_controller_id: sg04lp3                                      # Just a random name for the modbus controler
+  device_type: sun12k                                                # All entities in Home Assistant will start with this text to help identify the entitys 
+
+packages:
+  # Do NOT enable if MQTT is enabled
+  #api: !include config/api.yaml
+  #
+  mqtt: !include config/mqtt.yaml
+  wifi: !include config/wifi.yaml
+  ota: !include config/ota.yaml
+  web_server: !include config/web_server.yaml
+  esphome: !include config/esphome.yaml
+  board: !include config/esp32.yaml
+  logger: !include config/logging.yaml
+  captive_portal: !include config/captive_portal.yaml
+  modbus: !include config/modbus.yaml
+  #
+  # Different modules for the different sections of the inverter
+  solar: !include modules/solar.yaml
+  battery: !include modules/battery.yaml
+  #
+  load: !include modules/load.yaml
+  generator: !include modules/generator.yaml # Generator, Micro Inverter or Smart Load
+  general: !include modules/general.yaml
+  status: !include modules/status.yaml
+  internal: !include modules/internal.yaml # Internal CTs Current/Power Measurement
+  #
+  # Enable for grid-connected systems
+  #grid: !include modules/grid.yaml
+  #external: !include modules/external.yaml # External CTs Current/Power Measurement

@@ -1,0 +1,111 @@
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: ${device_type}_Maximum_battery_charge_current
+    name: "${device_type}-Maximum battery charge current"
+    address: 108
+    unit_of_measurement: A
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: ${device_type}_Maximum_battery_discharge_current
+    name: "${device_type}-Maximum battery discharge current"
+    address: 109
+    unit_of_measurement: A
+    value_type: U_WORD
+
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 5
+    name: "${device_type}-Total charge of the battery"
+    id:  ${device_type}_battery_total_charge
+    register_type: holding
+    address: 516
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_DWORD_R
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 5
+    name: "${device_type}-Total discharge of the battery"
+    id:  ${device_type}_battery_total_discharge
+    register_type: holding
+    address: 518
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_DWORD_R
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-battery temperature"
+    id:  ${device_type}_battery_temperature
+    register_type: holding
+    address: 586
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    value_type: U_WORD
+    filters:
+      - offset: -1000
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-battery voltage"
+    id: ${device_type}_battery_voltage
+    register_type: holding
+    address: 587
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-battery capacity"
+    id: ${device_type}_battery_capacity
+    register_type: holding
+    address: 588
+    unit_of_measurement: "%"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Battery output power"
+    id: ${device_type}_Battery_output_power
+    register_type: holding
+    address: 590
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Battery output current"
+    id: ${device_type}_Battery_output_current
+    register_type: holding
+    address: 591
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD

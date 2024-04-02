@@ -1,0 +1,36 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-External CT L1 Power"
+    id: ${device_type}_External_CT_L1_Power
+    register_type: holding
+    address: 616
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-External CT L2 Power"
+    id: ${device_type}_External_CT_L2_Power
+    register_type: holding
+    address: 617
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-External CT L3 Power"
+    id: ${device_type}_External_CT_L3_Power
+    register_type: holding
+    address: 618
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD

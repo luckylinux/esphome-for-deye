@@ -1,0 +1,3 @@
+ota:
+  safe_mode: true
+  password: !secret ota_password

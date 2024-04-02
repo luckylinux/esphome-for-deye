@@ -8,16 +8,19 @@ types=()
 
 # Populate device list
 # Inverter M01 (Master)
-names[0]="inverter/deye-01"
+names[0]="deye-01"
 types[0]="master"
+topic_prefix[0]="inverter"
 
 # Inverter S02 (Slave)
-names[1]="inverter/deye-02"
+names[1]="deye-02"
 types[1]="slave"
+topic_prefix[1]="inverter"
 
 # Inverter S03 (Slave)
-names[2]="inverter/deye-03"
+names[2]="deye-03"
 types[2]="slave"
+topic_prefix[2]="inverter"
 
 # Get nzumber of devices
 num=${#names[@]}
@@ -40,7 +43,11 @@ do
     read -p "Enter desired configuration: " selection
     selected=$((selection-1))
     name=${names[$selected]}
+    type=${types[$selected]}
+    topic_prefix=${topic_prefix[$selected]}
 done
 
 echo "Hostname set to <$name>"
 echo "Type is <$type>"
+echo "MQTT Topic Prefix: ${topic_prefix}"
+echo "MQTT Topic: ${topic_prefix}/${name}"

@@ -1,0 +1,24 @@
+sensor:
+  - platform: modbus_controller # Load totalpower
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load totalpower"
+    id: ${device_type}_Load_totalpower
+    register_type: holding
+    address: 653
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Load frequency"
+    id: ${device_type}_load_frequency
+    register_type: holding
+    address: 655
+    unit_of_measurement: "Hz"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.01
+    value_type: U_WORD

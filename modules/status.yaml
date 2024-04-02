@@ -1,0 +1,91 @@
+text_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    id: ${device_type}_Running_Status
+    bitmask: 0
+    register_type: holding
+    address: 500
+    raw_encode: HEXBYTES
+    name: ${device_type}-Running Status
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0: return std::string("standby");
+        case 1: return std::string("selfcheck");
+        case 2: return std::string("normal");
+        case 3: return std::string("alarm");
+        case 4: return std::string("fault");
+        default: return std::string("----");
+      }
+      return x;
+
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Warning1"
+    id:  ${device_type}_Warning1
+    register_type: holding
+    address: 553
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Warning2"
+    id:  ${device_type}_Warning2
+    register_type: holding
+    address: 554
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Warning3"
+    id:  ${device_type}_Warning3
+    register_type: holding
+    address: 555
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Error1"
+    id:  ${device_type}_Error1
+    register_type: holding
+    address: 556
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Error2"
+    id:  ${device_type}_Error2
+    register_type: holding
+    address: 557
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Error3"
+    id:  ${device_type}_Error3
+    register_type: holding
+    address: 558
+    accuracy_decimals: 0
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Failure status of communication board"
+    id:  ${device_type}_Failure_status_of_communication_board
+    register_type: holding
+    address: 548
+    accuracy_decimals: 0
+    value_type: U_WORD

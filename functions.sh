@@ -7,7 +7,7 @@ replace_text() {
     local nparameters=$(($(($nargin-1)) / 2))
     local ARGV=("$@")
 
-    #Debug
+    # Debug
     #echo "Passed $nargin arguments and $nparameters parameter"
 
     for ((p=1;p<=$nparameters;p++))

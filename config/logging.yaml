@@ -1,0 +1,5 @@
+# Enable logging
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+#  level: DEBUG # For Debugging only
+  level: INFO # For Production

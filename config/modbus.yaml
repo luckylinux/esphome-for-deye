@@ -1,0 +1,17 @@
+uart:
+  id: mod_bus
+  tx_pin: 17
+  rx_pin: 16
+  baud_rate: 9600
+  stop_bits: 1
+
+modbus:
+  id: modbus1
+# flow_control_pin: 4 #for use when you use a rs485 board without auto flow control. Like the rs485 max board.
+
+modbus_controller:
+  - id: ${modbus_controller_id}
+    address: 0x1
+    modbus_id: modbus1
+    setup_priority: -10
+    update_interval: 15sec

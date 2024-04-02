@@ -1,0 +1,9 @@
+mqtt:
+  broker: !secret mqtt_host
+  port: !secret mqtt_port
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  id: mqtt_client
+  discovery_unique_id_generator: mac
+  topic_prefix: {{topic_prefix}}
+  skip_cert_cn_check: true

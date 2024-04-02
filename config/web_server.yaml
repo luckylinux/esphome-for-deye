@@ -1,0 +1,18 @@
+#web_server:
+#  port: 80
+#  version: 2 # Version 1 displays as a table. Version 2 uses web components and has more functionality. Defaults to 2.
+#  log: true
+#  local: true # NOT SUPPORTED IN VERSION 1 - No internet/intranet required on the clients (all assets are inlined, compressed and served from flash)
+#  include_internal: true # Whether internal entities should be displayed on the web interface. Defaults to false
+#  ####css_include: "web_server/v1/www.css"  # v1
+#  ####css_url: ""                # v1
+#  ####js_include: "web_server/v1/www.js"    # v1
+#  ####js_url: ""                 # v1
+#  ####css_include: ""             # v2
+#  css_url: ""                 # v2
+#  js_include: "web_server/v2/www.js"     # v2
+#  js_url: ""                  # v2
+#  ota: false
+#  auth:
+#    username: !secret web_server_username
+#    password: !secret web_server_password

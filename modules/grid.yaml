@@ -1,0 +1,207 @@
+switch:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: ${device_type}_Solar_sell
+    register_type: holding
+    address: 145
+    bitmask: 1
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    name: ${device_type}-Grid_Charge
+    register_type: holding
+    address: 130
+    bitmask: 1
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+
+
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: ${device_type}_Maximum_battery_grid_charge_current
+    name: "${device_type}-Maximum battery_grid charge current"
+    address: 128
+    unit_of_measurement: A
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: ${device_type}_max_solar_sell_power
+    name: "${device_type}-Max Solar Sell Power"
+    unit_of_measurement: W
+    address: 143
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: ${device_type}_max_solar_power
+    name: "${device_type}-Max Solar Power"
+    unit_of_measurement: W
+    address: 340
+    value_type: U_WORD
+
+
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Total Grid Power"
+    id: ${device_type}_Total_Grid_Power
+    register_type: holding
+    address: 625
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${device_type}-Total Energy Bought"
+    id: ${device_type}_Total_Energy_Bought
+    register_type: holding
+    address: 522
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_WORD
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${device_type}-Total Energy Sold"
+    id: ${device_type}_Total_Energy_Sold
+    register_type: holding
+    address: 524
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_WORD
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${device_type}-Daily Energy Bought"
+    id: ${device_type}_Daily_Energy_Bought
+    register_type: holding
+    address: 520
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_WORD
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${device_type}-Daily Energy Sold"
+    id: ${device_type}_Daily_Energy_Sold
+    register_type: holding
+    address: 521
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: U_WORD
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Current L1"
+    id: ${device_type}_Grid_Current_L1
+    register_type: holding
+    address: 630
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Current L2"
+    id: ${device_type}_Grid_Current_L2
+    register_type: holding
+    address: 631
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Current L3"
+    id: ${device_type}_Grid_Current_L3
+    register_type: holding
+    address: 632
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Voltage L1"
+    id: ${device_type}_Grid_Voltage_L1
+    register_type: holding
+    address: 598
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Voltage L2"
+    id: ${device_type}_Grid_Voltage_L2
+    register_type: holding
+    address: 599
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${device_type}-Grid Voltage L3"
+    id: ${device_type}_Grid_Voltage_L3
+    register_type: holding
+    address: 600
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 0.1
+    value_type: U_WORD

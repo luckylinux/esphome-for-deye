@@ -1,0 +1,6 @@
+esp32:
+  board: {{board}}
+  variant: {{variant}}
+  framework:
+#    type: arduino # Original
+    type: esp-idf # Testing
