@@ -1,0 +1,83 @@
+binary_sensor:
+
+  # It's not fully clear what bit 0 & bit 1 enable or disable
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-Advanced Function Enable # bit 0 & 1
+    id: ${device_type}_Advanced_Function_Enable
+    register_type: holding
+    address: 178
+    bitmask: 0x1 # bit 0 is variable (0 = disabled , 1 = enabled)
+                 # bit 1 is fixed = 1 for both disabled and enabled
+                 # Maybe we can just set bit 0 and not touch bit 1 ?
+                 # Use bitmask = 0x1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-Generator Peak Shaving Enable # bit 2 & 3
+    id: ${device_type}_Generator_Peak_Shaving_Enable
+    register_type: holding
+    address: 178
+    bitmask: 0x4 # bit 2 is variable (0 = disabled , 1 = enabled)
+                 # bit 3 is fixed = 1 for both disabled and enabled
+                 # Maybe we can just set bit 2 and not touch bit 3 ?
+                 # Use bitmask = 0x1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-Grid Peak Shaving Enable # bit 4 & 5
+    id: ${device_type}_Grid_Peak_Shaving_Enable
+    register_type: holding
+    address: 178
+    bitmask: 0x10 # bit 4 is variable (0 = disabled , 1 = enabled)
+                  # bit 5 is fixed = 1 for both disabled and enabled
+                  # Maybe we can just set bit 4 and not touch bit 5 ?
+                  # Use bitmask = 0x1
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-On Grid Always On Enable # bit 6 & 7
+    id: ${device_type}_On_Grid_Always_On_Enable
+    register_type: holding
+    address: 178
+    bitmask: 0x40 # bit 6 is variable (0 = disabled , 1 = enabled)
+                  # bit 7 is fixed = 1 for both disabled and enabled
+                  # Maybe we can just set bit 6 and not touch bit 7 ?
+                  # Use bitmask = 0x1
+  
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-External Relay # bit 8 & 9
+    id: ${device_type}_External_Relay
+    register_type: holding
+    address: 178
+    bitmask: 0x100 # bit 8 is variable (0 = disabled , 1 = enabled)
+                   # bit 9 is fixed = 1 for both disabled and enabled
+                   # Maybe we can just set bit 8 and not touch bit 9 ?
+                   # Use bitmask = 0x1
+
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: ${device_type}-BMS Err-Stop # bit 10 & 11
+    id: ${device_type}_BMS Err-Stop
+    register_type: holding
+    address: 178
+    bitmask: 0x400  # bit 10 is variable (0 = disabled , 1 = enabled)
+                    # bit 11 is fixed = 1 for both disabled and enabled
+                    # Maybe we can just set bit 10 and not touch bit 11 ?
+                    # Use bitmask = 0x400
+
+
+# Notes to be considered to implement multi bit modbus
+#https://community.home-assistant.io/t/modbus-register-control-with-3-or-more-values/649266
+#https://community.home-assistant.io/t/modbus-two-bit-control-switch/633398
+#https://esphome.io/components/switch/modbus_controller.html
+#https://esphome.io/components/text_sensor/modbus_controller.html
+# Particularly: raw_encode

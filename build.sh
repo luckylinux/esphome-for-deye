@@ -87,8 +87,8 @@ done
 echo "Replaced Text"
 
 # Build ESPHome
-#esphome run $esphomeconfig          # Normal Mode
-esphome --verbose run $esphomeconfig # Debug Mode
+esphome run $esphomeconfig          # Normal Mode
+#esphome --verbose run $esphomeconfig # Debug Mode
 
 # Manage errors & try again
 echo -e "In case of errors, it is suggested to run: esphome clean.\n"
