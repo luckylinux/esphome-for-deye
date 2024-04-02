@@ -1,7 +1,13 @@
 uart:
   id: mod_bus
-  tx_pin: 17
-  rx_pin: 16
+  # Default for ESP32
+  #tx_pin: 17
+  #rx_pin: 16
+
+  # Using M5Stack RS485 Isolated Unit (CA-IS3082W) - SKU: U094 together with Atom S3 Lite
+  tx_pin: GPIO2
+  rx_pin: GPIO1
+  
   baud_rate: 9600
   stop_bits: 1
 
