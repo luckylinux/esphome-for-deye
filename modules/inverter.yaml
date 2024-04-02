@@ -138,7 +138,7 @@ sensors:
     id: ${device_type}_Inverter_Output_Total_Apparent_Power
     register_type: holding
     address: 637
-    unit_of_measurement: "W"
+    unit_of_measurement: "VA"
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD

@@ -1,11 +1,94 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Out-of-grid total power"
-    id: ${device_type}_out_of_grid_total_power
+    name: "${device_type}-Out-of-Grid Current L1"
+    id: ${device_type}_Out_of_Grid_Current_L1
+    register_type: holding
+    address: 613
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filter:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Current L2"
+    id: ${device_type}_Out_of_Grid_Current_L2
+    register_type: holding
+    address: 614
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filter:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Current L3"
+    id: ${device_type}_Out_of_Grid_Current_L3
+    register_type: holding
+    address: 615
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filter:
+      - multiply: 0.01
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Power L1"
+    id: ${device_type}_Out_of_Grid_Power_L1
+    register_type: holding
+    address: 616
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Power L2"
+    id: ${device_type}_Out_of_Grid_Power_L2
+    register_type: holding
+    address: 617
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Power L3"
+    id: ${device_type}_Out_of_Grid_Power_L3
+    register_type: holding
+    address: 618
+    unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Total Power"
+    id: ${device_type}_Out_of_Grid_Total_Power
     register_type: holding
     address: 619
     unit_of_measurement: "W"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    value_type: S_WORD
+  
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${device_type}-Out-of-Grid Apparent Power Total"
+    id: ${device_type}_Out_of_Grid_Apparent_Power_Total
+    register_type: holding
+    address: 620
+    unit_of_measurement: "VA"
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
