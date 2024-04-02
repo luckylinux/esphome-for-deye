@@ -10,7 +10,7 @@ sensor:
     state_class: "total_increasing"
     device_class: energy
     accuracy_decimals: 1
-    value_type: U_WORD
+    value_type: U_WORD # Maybe U_DWORD_R is more precise (uses 2 registers)
     filters:
       - multiply: 0.1
 
