@@ -1,3 +1,4 @@
 packages:
   common: !include esphome-config-common.yaml
-  time_of_use: !include config/time-of-use.yaml
+  advanced: !include modules/advanced.yaml
+  time_of_use: !include modules/time-of-use.yaml

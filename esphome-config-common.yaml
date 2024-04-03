@@ -29,6 +29,7 @@ packages:
   internal: !include modules/internal.yaml # Internal CTs Current/Power Measurement
   inverter: !include modules/inverter.yaml
   ups: !include modules/ups.yaml
+  out-of-grid: !include modules/out-of-grid.yaml
 
   #
   # Enable for grid-connected systems
