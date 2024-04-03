@@ -79,8 +79,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Inverter Output Phase Power L1"
-    id: ${device_type}_Inverter_Output_Phase_Power_L1
+    name: "${device_type}-Inverter Output Active Power L1"
+    id: ${device_type}_Inverter_Output_Active_Power_L1
     register_type: holding
     address: 633
     unit_of_measurement: "W"
@@ -90,8 +90,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Inverter Output Phase Power L2"
-    id: ${device_type}_Inverter_Output_Phase_Power_L2
+    name: "${device_type}-Inverter Output Active Power L2"
+    id: ${device_type}_Inverter_Output_Active_Power_L2
     register_type: holding
     address: 634
     unit_of_measurement: "W"
@@ -101,8 +101,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Inverter Output Phase Power L3"
-    id: ${device_type}_Inverter_Output_Phase_Power_L3
+    name: "${device_type}-Inverter Output Active Power L3"
+    id: ${device_type}_Inverter_Output_Active_Power_L3
     register_type: holding
     address: 635
     unit_of_measurement: "W"
@@ -112,8 +112,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Inverter Output Total Power"
-    id: ${device_type}_Inverter_Output_Total_Power
+    name: "${device_type}-Inverter Output Active Power Total"
+    id: ${device_type}_Inverter_Output_Active_Power_Total
     register_type: holding
     address: 636
     unit_of_measurement: "W"
@@ -123,8 +123,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Inverter Output Total Apparent Power"
-    id: ${device_type}_Inverter_Output_Total_Apparent_Power
+    name: "${device_type}-Inverter Output Apparent Power Total"
+    id: ${device_type}_Inverter_Output_Apparent_Power_Total
     register_type: holding
     address: 637
     unit_of_measurement: "VA"
@@ -134,8 +134,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-inverter-frequency"
-    id: ${device_type}_inverter_frequency
+    name: "${device_type}-Inverter-Frequency"
+    id: ${device_type}_Inverter_Frequency
     register_type: holding
     address: 638
     unit_of_measurement: "Hz"

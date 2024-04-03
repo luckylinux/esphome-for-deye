@@ -2,7 +2,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}_Solar_sell
+    name: ${device_type}_Solar_Sell
     register_type: holding
     address: 145
     bitmask: 1
@@ -25,26 +25,28 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Maximum_battery_grid_charge_current
-    name: "${device_type}-Maximum battery_grid charge current"
+    name: "${device_type}-Maximum Battery Grid Charge Current"
+    id: ${device_type}_Maximum_Battery_Grid_Charge_Current
     address: 128
     unit_of_measurement: A
     value_type: U_WORD
 
+    # Limit the maximum power output of the grid connection
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_max_solar_sell_power
-    name: "${device_type}-Max Solar Sell Power"
+    name: "${device_type}-Grid Maximum Solar Sell Power"
+    id: ${device_type}_Grid_Maximum_Solar_Sell_Power
     unit_of_measurement: W
     address: 143
     value_type: U_WORD
 
+    # Max Solar Sell Power
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_max_solar_power
-    name: "${device_type}-Max Solar Power"
+    name: "${device_type}-Grid Maximum Solar Power"
+    id: ${device_type}_Grid_Maximum_Solar_Power
     unit_of_measurement: W
     address: 340
     value_type: U_WORD
@@ -53,7 +55,7 @@ number:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Power Factor"
+    name: "${device_type}-Grid PF (Power Factor)"
     id: ${device_type}_Grid_PF
     register_type: holding
     address: 621
@@ -99,8 +101,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Total Power"
-    id: ${device_type}_Grid_Total_Power
+    name: "${device_type}-Grid Power Total"
+    id: ${device_type}_Grid_Power_Total
     register_type: holding
     address: 625
     unit_of_measurement: "W"
@@ -111,8 +113,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Total Energy Bought"
-    id: ${device_type}_Total_Energy_Bought
+    name: "${device_type}-Grid Total Energy Bought"
+    id: ${device_type}_Grid_Total_Energy_Bought
     register_type: holding
     address: 522
     unit_of_measurement: "kWh"
@@ -126,8 +128,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Total Energy Sold"
-    id: ${device_type}_Total_Energy_Sold
+    name: "${device_type}-Grid Total Energy Sold"
+    id: ${device_type}_Grid_Total_Energy_Sold
     register_type: holding
     address: 524
     unit_of_measurement: "kWh"
@@ -141,8 +143,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Daily Energy Bought"
-    id: ${device_type}_Daily_Energy_Bought
+    name: "${device_type}-Grid Daily Energy Bought"
+    id: ${device_type}_Grid_Daily_Energy_Bought
     register_type: holding
     address: 520
     unit_of_measurement: "kWh"
@@ -156,8 +158,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Daily Energy Sold"
-    id: ${device_type}_Daily_Energy_Sold
+    name: "${device_type}-Grid Daily Energy Sold"
+    id: ${device_type}_Grid_Daily_Energy_Sold
     register_type: holding
     address: 521
     unit_of_measurement: "kWh"
@@ -213,8 +215,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage L1"
-    id: ${device_type}_Grid_Voltage_L1
+    name: "${device_type}-Grid Voltage Phase L1"
+    id: ${device_type}_Grid_Voltage_Phase_L1
     register_type: holding
     address: 598
     unit_of_measurement: "V"
@@ -227,8 +229,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage L2"
-    id: ${device_type}_Grid_Voltage_L2
+    name: "${device_type}-Grid Voltage Phase L2"
+    id: ${device_type}_Grid_Voltage_Phase_L2
     register_type: holding
     address: 599
     unit_of_measurement: "V"
@@ -241,8 +243,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage L3"
-    id: ${device_type}_Grid_Voltage_L3
+    name: "${device_type}-Grid Voltage Phase L3"
+    id: ${device_type}_Grid_Voltage_Phase_L3
     register_type: holding
     address: 600
     unit_of_measurement: "V"
@@ -256,8 +258,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Line Voltage L1L2"
-    id: ${device_type}_Grid_Line_L1L2
+    name: "${device_type}-Grid Voltage Line L1L2"
+    id: ${device_type}_Grid_Voltage_Line_L1L2
     register_type: holding
     address: 601
     unit_of_measurement: "V"
@@ -270,8 +272,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Line Voltage L2"
-    id: ${device_type}_Grid_Line_Voltage_L2L3
+    name: "${device_type}-Grid Voltage Line L2"
+    id: ${device_type}_Grid_Voltage_Line_L2L3
     register_type: holding
     address: 602
     unit_of_measurement: "V"
@@ -284,8 +286,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Line Voltage L3L1"
-    id: ${device_type}_Grid_Line_Voltage_L3L1
+    name: "${device_type}-Grid Voltage Line L3L1"
+    id: ${device_type}_Grid_Voltage_Line_L3L1
     register_type: holding
     address: 603
     unit_of_measurement: "V"

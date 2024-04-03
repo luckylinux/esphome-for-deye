@@ -1,60 +1,60 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Voltage L1"
-    id: ${device_type}_Generator_Phase_Voltage_L1
+    name: "${device_type}-Generator Voltage Phase L1"
+    id: ${device_type}_Generator_Voltage_Phase_L1
     register_type: holding
     address: 661
     unit_of_measurement: "V"
     state_class: "measurement"
     accuracy_decimals: 1
-    filter:
+    filters:
       - multiply: 0.1
     value_type: U_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Voltage L2"
-    id: ${device_type}_Generator_Phase_Voltage_L1
+    name: "${device_type}-Generator Voltage Phase L2"
+    id: ${device_type}_Generator_Voltage_Phase_L2
     register_type: holding
     address: 662
     unit_of_measurement: "V"
     state_class: "measurement"
     accuracy_decimals: 1
-    filter:
+    filters:
       - multiply: 0.1
     value_type: U_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Voltage L3"
-    id: ${device_type}_Generator_Phase_Voltage_L1
+    name: "${device_type}-Generator Voltage Phase L3"
+    id: ${device_type}_Generator_Voltage_Phase_L3
     register_type: holding
     address: 663
     unit_of_measurement: "V"
     state_class: "measurement"
     accuracy_decimals: 1
-    filter:
+    filters:
       - multiply: 0.1
     value_type: U_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Power L1"
-    id: ${device_type}_Generator_Phase_Power_L1
+    name: "${device_type}-Generator Power L1"
+    id: ${device_type}_Generator_Power_L1
     register_type: holding
     address: 664
     unit_of_measurement: "W"
     state_class: "measurement"
     accuracy_decimals: 1
-    filter:
+    filters:
       - multiply: 0.1
     value_type: U_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Power L2"
-    id: ${device_type}_Generator_Phase_Power_L1
+    name: "${device_type}-Generator Power L2"
+    id: ${device_type}_Generator_Power_L2
     register_type: holding
     address: 665
     unit_of_measurement: "W"
@@ -64,8 +64,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Phase Power L3"
-    id: ${device_type}_Generator_Phase_Power_L1
+    name: "${device_type}-Generator Power L3"
+    id: ${device_type}_Generator_Power_L3
     register_type: holding
     address: 666
     unit_of_measurement: "W"
@@ -75,8 +75,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Generator Total Power"
-    id: ${device_type}_Generator_Total_Power
+    name: "${device_type}-Generator Power Total"
+    id: ${device_type}_Generator_Power_Total
     register_type: holding
     address: 667
     unit_of_measurement: "W"

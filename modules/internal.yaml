@@ -4,8 +4,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-active power generation of today"
-    id: ${device_type}_active_power_generation_of_today
+    name: "${device_type}-Internal_Active Power Generation of Today"
+    id: ${device_type}_Internal_Active_Power_Generation_of_Today
     register_type: holding
     address: 502
     unit_of_measurement: "kWh"
@@ -16,11 +16,27 @@ sensor:
     filters:
       - multiply: 0.1
 
+  # To be investigated - According to documentation active power should be in the 502 Register, not in the 501
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${device_type}-Internal_Reactive Power Generation of Today"
+    id: ${device_type}_Internal_Reactive_Power_Generation_of_Today
+    register_type: holding
+    address: 501
+    unit_of_measurement: "kVarh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: S_WORD
+    filters:
+      - multiply: 0.1
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT L1 Power"
-    id: ${device_type}_Internal_CT_L1_Power
+    name: "${device_type}-Internal CT Power L1"
+    id: ${device_type}_Internal_CT_Power_L1
     register_type: holding
     address: 604
     unit_of_measurement: "W"
@@ -31,8 +47,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT L2 Power"
-    id: ${device_type}_Internal_CT_L2_Power
+    name: "${device_type}-Internal CT Power L2"
+    id: ${device_type}_Internal_CT_Power_L2
     register_type: holding
     address: 605
     unit_of_measurement: "W"
@@ -43,8 +59,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT L3 Power"
-    id: ${device_type}_Internal_CT_L3_Power
+    name: "${device_type}-Internal CT Power L3"
+    id: ${device_type}_Internal_CT_Power_L3
     register_type: holding
     address: 606
     unit_of_measurement: "W"
@@ -55,8 +71,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal total Power"
-    id: ${device_type}_Internal_total_Power
+    name: "${device_type}-Internal CT Power Total "
+    id: ${device_type}_Internal_CT_Power_Total
     register_type: holding
     address: 607
     unit_of_measurement: "W"
@@ -64,18 +80,19 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
-  #Total Consumption
-  - platform: modbus_controller 
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
-    name: "${device_type}-Total Consumption"
-    id: ${device_type}_Total_Consumption
-    register_type: holding
-    address: 527
-    unit_of_measurement: "kWh"
-    state_class: "total_increasing"
-    device_class: energy
-    accuracy_decimals: 2
-    value_type: U_DWORD_R
-    filters:
-      - multiply: 0.1
+  # Total Consumption
+  # Disabled since an entity with this Register is already defined in load.yaml
+  #- platform: modbus_controller 
+  #  modbus_controller_id: ${modbus_controller_id}
+  #  skip_updates: 10
+  #  name: "${device_type}-Internal Total Consumption"
+  #  id: ${device_type}_Total_Consumption
+  #  register_type: holding
+  #  address: 527
+  #  unit_of_measurement: "kWh"
+  #  state_class: "total_increasing"
+  #  device_class: energy
+  #  accuracy_decimals: 2
+  #  value_type: U_DWORD_R
+  #  filters:
+  #    - multiply: 0.1

@@ -2,68 +2,68 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time of Use
-    id: ${device_type}_Time_of_Use
+    name: ${device_type}-Time of Use - Enable
+    id: ${device_type}_Time_of_Use_Enable
     register_type: holding
     address: 146
     bitmask: 1
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 1 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 1 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 1 charge enable
+    name: ${device_type}-Time Point 1 Charge Enable
     register_type: holding
     address: 172
     bitmask: 1   # 2 hvis man ønsker Gen charging enabel i sted for.
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 2 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 2 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 2 charge enable
+    name: ${device_type}-Time Point 2 Charge Enable
     register_type: holding
     address: 173
     bitmask: 1    # 2 hvis man ønsker Gen charging enabel i sted for.
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 3 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 3 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 3 charge enable
+    name: ${device_type}-Time Point 3 Charge Enable
     register_type: holding
     address: 174
     bitmask: 1    # 2 hvis man ønsker Gen charging enabel i sted for.
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 4 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 4 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 4 charge enable
+    name: ${device_type}-Time Point 4 Charge Enable
     register_type: holding
     address: 175
     bitmask: 1
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 5 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 5 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 5 charge enable
+    name: ${device_type}-Time Point 5 Charge Enable
     register_type: holding
     address: 176
     bitmask: 1
     entity_category: config
     icon: "mdi:toggle-switch"
 
-  - platform: modbus_controller  # Time point 6 charge enable - grid charging enable
+  - platform: modbus_controller  # Time Point 6 Charge Enable - grid charging Enable
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Time point 6 charge enable
+    name: ${device_type}-Time Point 6 Charge Enable
     register_type: holding
     address: 177
     bitmask: 1
@@ -78,56 +78,56 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_1
-    name: "${device_type}-Time point 1 start"
+    id: ${device_type}_Time_of_Use_Time_Point_1
+    name: "${device_type}-Time of Use - Time Point 1 Start"
     address: 148
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_2
-    name: "${device_type}-Time point 2 start"
+    id: ${device_type}_Time_of_Use_Time_Point_2
+    name: "${device_type}-Time of Use - Time Point 2 Start"
     address: 149
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_3
-    name: "${device_type}-Time point 3 start"
+    id: ${device_type}_Time_of_Use_Time_Point_3
+    name: "${device_type}-Time of Use - Time Point 3 Start"
     address: 150
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_4
-    name: "${device_type}-Time point 4 start"
+    id: ${device_type}_Time_of_Use_Time_Point_4
+    name: "${device_type}-Time of Use - Time Point 4 Start"
     address: 151
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_5
-    name: "${device_type}-Time point 5 start"
+    id: ${device_type}_Time_of_Use_Time_Point_5
+    name: "${device_type}-Time of Use - Time Point 5 Start"
     address: 152
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_6
-    name: "${device_type}-Time point 6 start"
+    id: ${device_type}_Time_of_Use_Time_Point_6
+    name: "${device_type}-Time of Use - Time Point 6 Start"
     address: 153
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_1_power
-    name: "${device_type}-Time point 1 power"
+    id: ${device_type}_Time_of_Use_Time_Point_1_Power
+    name: "${device_type}-Time of Use - Time Point 1 Power"
     unit_of_measurement: W
     address: 154
     value_type: U_WORD
@@ -135,8 +135,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_2_power
-    name: "${device_type}-Time point 2 power"
+    id: ${device_type}_Time_of_Use_Time_Point_2_Power
+    name: "${device_type}-Time of Use - Time Point 2 Power"
     unit_of_measurement: W
     address: 155
     value_type: U_WORD
@@ -144,8 +144,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_3_power
-    name: "${device_type}-Time point 3 power"
+    id: ${device_type}_Time_of_Use_Time_Point_3_Power
+    name: "${device_type}-Time of Use - Time Point 3 Power"
     unit_of_measurement: W
     address: 156
     value_type: U_WORD
@@ -153,8 +153,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_4_power
-    name: "${device_type}-Time point 4 power"
+    id: ${device_type}_Time_of_Use_Time_Point_4_Power
+    name: "${device_type}-Time of Use - Time Point 4 Power"
     unit_of_measurement: W
     address: 157
     value_type: U_WORD
@@ -162,8 +162,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_5_power
-    name: "${device_type}-Time point 5 power"
+    id: ${device_type}_Time_of_Use_Time_Point_5_Power
+    name: "${device_type}-Time of Use - Time Point 5 Power"
     unit_of_measurement: W
     address: 158
     value_type: U_WORD
@@ -171,8 +171,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_6_power
-    name: "${device_type}-Time point 6 power"
+    id: ${device_type}_Time_of_Use_Time_Point_6_Power
+    name: "${device_type}-Time of Use - Time Point 6 Power"
     unit_of_measurement: W
     address: 159
     value_type: U_WORD
@@ -180,8 +180,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_1_capacity
-    name: "${device_type}-Time point 1 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_1_Capacity
+    name: "${device_type}-Time of Use - Time Point 1 Capacity"
     unit_of_measurement: "%"
     address: 166
     min_value: 0
@@ -192,8 +192,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_2_capacity
-    name: "${device_type}-Time point 2 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_2_Capacity
+    name: "${device_type}-Time of Use - Time Point 2 Capacity"
     unit_of_measurement: "%"
     address: 167
     min_value: 0
@@ -204,8 +204,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_3_capacity
-    name: "${device_type}-Time point 3 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_3_Capacity
+    name: "${device_type}-Time of Use - Time Point 3 Capacity"
     unit_of_measurement: "%"
     address: 168
     min_value: 0
@@ -216,8 +216,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_4_capacity
-    name: "${device_type}-Time point 4 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_4_Capacity
+    name: "${device_type}-Time of Use - Time Point 4 Capacity"
     unit_of_measurement: "%"
     address: 169
     min_value: 0
@@ -228,8 +228,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_5_capacity
-    name: "${device_type}-Time point 5 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_5_Capacity
+    name: "${device_type}-Time of Use - Time Point 5 Capacity"
     unit_of_measurement: "%"
     address: 170
     min_value: 0
@@ -240,8 +240,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_point_6_capacity
-    name: "${device_type}-Time point 6 capacity"
+    id: ${device_type}_Time_of_Use_Time_Point_6_Capacity
+    name: "${device_type}-Time of Use - Time Point 6 Capacity"
     unit_of_measurement: "%"
     address: 171
     min_value: 0
