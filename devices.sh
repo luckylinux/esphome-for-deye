@@ -5,6 +5,7 @@ names=()
 macs=()
 protocols=()
 types=()
+topic_prefix=()
 
 # Populate device list
 # Inverter M01 (Master)
