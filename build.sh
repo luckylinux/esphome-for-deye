@@ -86,6 +86,9 @@ done
 
 echo "Replaced Text"
 
+# Clean Build Files to make sure all new/updated Entities Appear Correctly
+esphome clean $esphomeconfig
+
 # Build ESPHome
 esphome run $esphomeconfig          # Normal Mode
 #esphome --verbose run $esphomeconfig # Debug Mode
