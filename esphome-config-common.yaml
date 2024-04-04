@@ -5,10 +5,12 @@ substitutions:
   device_type: sun12k                                                # All entities in Home Assistant will start with this text to help identify the entitys 
 
 packages:
-  # Do NOT enable if MQTT is enabled
-  #api: !include config/api.yaml
-  #
-  mqtt: !include config/mqtt.yaml
+  api: !include config/api.yaml
+  mqtt: !include
+    file: config/mqtt.yaml
+    vars:
+      mqtt_discovery: false # If "api" is included, turn off autodiscovery feature for Home Assistant
+      #mqtt_discovery: true # If "api" is NOT included, turn on MQTT autodiscovery feature for Home Assistant
   wifi: !include config/wifi.yaml
   ota: !include config/ota.yaml
   web_server: !include config/web_server.yaml

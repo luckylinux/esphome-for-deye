@@ -81,7 +81,7 @@ for file in $files
 do
    replace_text ./$file "board" "${board}"
    replace_text ./$file "variant" "${variant}"
-   replace_text ./$file "topic_prefix" "${topic_prefix}"
+   replace_text ./$file "mqtt_topic_prefix" "${topic_prefix}"
 done
 
 echo "Replaced Text"
