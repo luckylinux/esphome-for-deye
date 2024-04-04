@@ -74,55 +74,8 @@ switch:
 
 
 
+
 number:
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_1
-    name: "${device_type}-Time of Use - Time Point 1 Start"
-    address: 148
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_2
-    name: "${device_type}-Time of Use - Time Point 2 Start"
-    address: 149
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_3
-    name: "${device_type}-Time of Use - Time Point 3 Start"
-    address: 150
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_4
-    name: "${device_type}-Time of Use - Time Point 4 Start"
-    address: 151
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_5
-    name: "${device_type}-Time of Use - Time Point 5 Start"
-    address: 152
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Time_of_Use_Time_Point_6
-    name: "${device_type}-Time of Use - Time Point 6 Start"
-    address: 153
-    value_type: U_WORD
-
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}

@@ -31,6 +31,13 @@ packages:
   ups: !include modules/ups.yaml
   out-of-grid: !include modules/out-of-grid.yaml
 
+  # Time of Use for Grid-Connected Systems
+  time-of-use-common: !include modules/time-of-use-common.yaml
+
+  # Only Include ONE of these (select OR number)
+  time-of-use-time-as-select: !include modules/time-of-use-time-as-select.yaml
+  #time-of-use-time-as-number: !include modules/time-of-use-time-as-number.yaml
+
   #
   # Enable for grid-connected systems
   #grid: !include modules/grid.yaml
