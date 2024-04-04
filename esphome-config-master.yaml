@@ -1,4 +1,10 @@
 packages:
   common: !include esphome-config-common.yaml
   advanced: !include modules/advanced.yaml
-  time_of_use: !include modules/time-of-use.yaml
+
+  # Time of Use for Grid-Connected Systems
+  time-of-use-common: !include modules/time-of-use-common.yaml
+
+  # Only Include ONE of these (select OR number)
+  time-of-use-time-as-select: !include modules/time-of-use-time-as-select.yaml
+  #time-of-use-time-as-number: !include modules/time-of-use-time-as-number.yaml
