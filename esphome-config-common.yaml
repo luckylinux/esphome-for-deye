@@ -2,7 +2,7 @@ substitutions:
   name: !secret host_name                                            # Name in ESPhome
   device_description: "Esphome component for Deye sun-12k-sg04lp3"   # Description in ESPhome
   modbus_controller_id: sg04lp3                                      # Just a random name for the modbus controler
-  device_type: sun12k                                                # All entities in Home Assistant will start with this text to help identify the entitys 
+  device_type: !secret entities_prefix                               # All entities in Home Assistant will start with this text to help identify the entitys 
 
 packages:
   api: !include config/api.yaml
