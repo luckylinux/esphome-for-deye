@@ -6,6 +6,11 @@ substitutions:
 
 packages:
   api: !include config/api.yaml
+  mdns: !include
+    file: config/mdns.yaml
+    vars:
+      mdns_disable: false # Enable auto-discovery in ESPHome Dashboard & Home Assistant
+      #mdns_disable: true # Disable auto-discovery in ESPHome Dashboard & Home Assistant
   mqtt: !include
     file: config/mqtt.yaml
     vars:

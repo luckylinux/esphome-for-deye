@@ -9,17 +9,17 @@ topic_prefix=()
 
 # Populate device list
 # Inverter M01 (Master)
-names[0]="deye-01"
+names[0]="deye-a"
 types[0]="master"
 topic_prefix[0]="inverter"
 
 # Inverter S02 (Slave)
-names[1]="deye-02"
+names[1]="deye-b"
 types[1]="slave"
 topic_prefix[1]="inverter"
 
 # Inverter S03 (Slave)
-names[2]="deye-03"
+names[2]="deye-c"
 types[2]="slave"
 topic_prefix[2]="inverter"
 

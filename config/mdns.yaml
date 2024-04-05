@@ -1,0 +1,3 @@
+# Enable MDNS in order to have the node announce itself on the local network using the multicast DNS (mDNS) protocol.
+mdns:
+  disabled: ${mdns_disable}

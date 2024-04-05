@@ -7,7 +7,7 @@ uart:
   # Using M5Stack RS485 Isolated Unit (CA-IS3082W) - SKU: U094 together with Atom S3 Lite
   tx_pin: GPIO2
   rx_pin: GPIO1
-  
+
   baud_rate: 9600
   stop_bits: 1
 
