@@ -1,0 +1,7 @@
+button:
+  - platform: restart
+    name: "${name} ESP32 Restart (Normal Mode)"
+    entity_category: config
+  - platform: safe_mode
+    name: "${name} ESP32 Restart (Safe Mode)"
+    entity_category: config

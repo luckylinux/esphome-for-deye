@@ -18,17 +18,21 @@ packages:
       #mqtt_discovery: true # If "api" is NOT included, turn on MQTT autodiscovery feature for Home Assistant
   wifi: !include config/wifi.yaml
   ota: !include config/ota.yaml
+
+  restart: !include config/restart.yaml
+
   web_server: !include config/web_server.yaml
   esphome: !include config/esphome.yaml
   board: !include config/esp32.yaml
   logger: !include config/logging.yaml
   captive_portal: !include config/captive_portal.yaml
   modbus: !include config/modbus.yaml
-  #
+
+
   # Different modules for the different sections of the inverter
   solar: !include modules/solar.yaml
   battery: !include modules/battery.yaml
-  #
+
   load: !include modules/load.yaml
   generator: !include modules/generator.yaml # Generator, Micro Inverter or Smart Load
   general: !include modules/general.yaml
