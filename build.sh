@@ -27,8 +27,11 @@ python3 -m venv ./venv
 # Active venv
 source venv/bin/activate
 
-# Install esphome
-pip3 install esphome
+# Install ESPHome
+pip3 install esphome # Optionally specify the desired version
+
+# Upgrade ESPHome
+#pip install --upgrade esphome # Force upgrade to latest version
 
 # Clone external component if needed
 version=$(date +%Y%m%d)
