@@ -11,17 +11,22 @@ topic_prefix=()
 # Inverter M01 (Master)
 names[0]="deye-a"
 types[0]="master"
-topic_prefix[0]="inverter"
+#topic_prefix[0]="deye-a"
+topic_prefix[0]="inverter/deye-a"
 
 # Inverter S02 (Slave)
 names[1]="deye-b"
 types[1]="slave"
-topic_prefix[1]="inverter"
+#topic_prefix[1]="deye-b"
+topic_prefix[1]="inverter/deye-b"
+
 
 # Inverter S03 (Slave)
 names[2]="deye-c"
 types[2]="slave"
-topic_prefix[2]="inverter"
+#topic_prefix[2]="deye-c"
+topic_prefix[2]="inverter/deye-c"
+
 
 # Get nzumber of devices
 num=${#names[@]}
