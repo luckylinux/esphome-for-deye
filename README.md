@@ -53,6 +53,22 @@ Run:
 ./build.sh
 ```
 
+## Upgrading ESPHome Installation
+The `build.sh` script takes care of the original installation of ESPHome within a Python venv.
+
+The instructions for upgrading ESPHome are also outlined in `build.sh`, but the command is DISABLED by default, in order to prevent automatic Upgrades in case of e.g. Bugs / Incompatibilities / Regressions / etc. 
+
+Either uncomment the line in `build.sh` to force an upgrade (and re-comment it afterwards to prevent further automatic upgrades), or run (in the case of BASH shell):
+
+```
+# Active Python venv
+source ~/ESPHome/venv/bin/activate
+
+# Upgrade ESPHome
+# Force upgrade to latest version
+pip install --upgrade esphome
+```
+
 ## Hardware diagram
 RX / TX between esp and ttl converter way have to be swapped. This seems to be a little different from espboard to espboard.
 Check Termination: check that 120 Ohm are between B+ and B- (short wire); for long wire use 120 Ohms on both sides.
