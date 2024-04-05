@@ -1,6 +1,8 @@
 wifi:
+  power_save_mode: none # Disabling Power Saving Could help reduce issues with OTA
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   domain: !secret wifi_domain
   ap:
     ssid: ${name}
+    password: !secret wifi_ap_password
