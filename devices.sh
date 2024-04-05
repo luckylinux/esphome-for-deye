@@ -53,11 +53,16 @@ do
     topic_prefix=${topic_prefix[$selected]}
 done
 
-# Determine entities prefix
-entities_prefix="${name}-sun12k"
+# Determine entities prefix for names
+entities_name_prefix="${name}-sun12k"
+
+# Determine entities prefix for ids (cannot contain dashes or spaces)
+entities_id_prefix=${name/"-"/"_"}
+entities_id_prefix="${entities_id_prefix}_sun12k"
+
 
 # Echo
 echo "Hostname set to <$name>"
 echo "Type is <$type>"
-echo "MQTT Topic Prefix: ${topic_prefix}"
-echo "MQTT Topic: ${topic_prefix}/${entities_prefix}"
+#echo "MQTT Topic Prefix: ${topic_prefix}"
+echo "MQTT Topic: ${topic_prefix}"
