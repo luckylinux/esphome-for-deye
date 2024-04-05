@@ -4,8 +4,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - Function Enable # bit 0 & 1
-    id: ${device_type}_Advanced_Function_Enable
+    name: "${entities_name_prefix}-Advanced - Function Enable" # bit 0 & 1
+    id: "${entities_id_prefix}_Advanced_Function_Enable"
     register_type: holding
     address: 178
     bitmask: 0x1 # bit 0 is variable (0 = disabled , 1 = enabled)
@@ -16,8 +16,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - Generator Peak Shaving Enable # bit 2 & 3
-    id: ${device_type}_Advanced_Generator_Peak_Shaving_Enable
+    name: "${entities_name_prefix}-Advanced - Generator Peak Shaving Enable" # bit 2 & 3
+    id: "${entities_id_prefix}_Advanced_Generator_Peak_Shaving_Enable"
     register_type: holding
     address: 178
     bitmask: 0x4 # bit 2 is variable (0 = disabled , 1 = enabled)
@@ -28,8 +28,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - Grid Peak Shaving Enable # bit 4 & 5
-    id: ${device_type}_Advanced_Grid_Peak_Shaving_Enable
+    name: "${entities_name_prefix}-Advanced - Grid Peak Shaving Enable" # bit 4 & 5
+    id: "${entities_id_prefix}_Advanced_Grid_Peak_Shaving_Enable"
     register_type: holding
     address: 178
     bitmask: 0x10 # bit 4 is variable (0 = disabled , 1 = enabled)
@@ -40,8 +40,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - On Grid Always On Enable # bit 6 & 7
-    id: ${device_type}_Advanced_On_Grid_Always_On_Enable
+    name: "${entities_name_prefix}-Advanced - On Grid Always On Enable" # bit 6 & 7
+    id: "${entities_id_prefix}_Advanced_On_Grid_Always_On_Enable"
     register_type: holding
     address: 178
     bitmask: 0x40 # bit 6 is variable (0 = disabled , 1 = enabled)
@@ -52,8 +52,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - External Relay # bit 8 & 9
-    id: ${device_type}_Advanced_External_Relay
+    name: "${entities_name_prefix}-Advanced - External Relay" # bit 8 & 9
+    id: "${entities_id_prefix}_Advanced_External_Relay"
     register_type: holding
     address: 178
     bitmask: 0x100 # bit 8 is variable (0 = disabled , 1 = enabled)
@@ -65,8 +65,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-Advanced - BMS Err-Stop # bit 10 & 11
-    id: ${device_type}_Advanced_BMS_Err_Stop
+    name: "${entities_name_prefix}-Advanced - BMS Err-Stop" # bit 10 & 11
+    id: "${entities_id_prefix}_Advanced_BMS_Err_Stop"
     register_type: holding
     address: 178
     bitmask: 0x400  # bit 10 is variable (0 = disabled , 1 = enabled)

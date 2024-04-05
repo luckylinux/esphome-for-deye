@@ -2,7 +2,8 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}_Solar_Sell
+    name: "${entities_name_prefix}_Solar_Sell"
+    id: "${entities_id_prefix}_Solar_Sell"
     register_type: holding
     address: 145
     bitmask: 1
@@ -12,7 +13,8 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-Grid_Charge
+    name: "${entities_name_prefix}-Grid_Charge"
+    id: "${entities_id_prefix}_Grid_Charge"
     register_type: holding
     address: 130
     bitmask: 1
@@ -25,8 +27,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Maximum Battery Grid Charge Current"
-    id: ${device_type}_Maximum_Battery_Grid_Charge_Current
+    name: "${entities_name_prefix}-Maximum Battery Grid Charge Current"
+    id: "${entities_id_prefix}_Maximum_Battery_Grid_Charge_Current"
     address: 128
     unit_of_measurement: A
     value_type: U_WORD
@@ -35,8 +37,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Maximum Solar Sell Power"
-    id: ${device_type}_Grid_Maximum_Solar_Sell_Power
+    name: "${entities_name_prefix}-Grid Maximum Solar Sell Power"
+    id: "${entities_id_prefix}_Grid_Maximum_Solar_Sell_Power"
     unit_of_measurement: W
     address: 143
     value_type: U_WORD
@@ -45,8 +47,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Maximum Solar Power"
-    id: ${device_type}_Grid_Maximum_Solar_Power
+    name: "${entities_name_prefix}-Grid Maximum Solar Power"
+    id: "${entities_id_prefix}_Grid_Maximum_Solar_Power"
     unit_of_measurement: W
     address: 340
     value_type: U_WORD
@@ -55,8 +57,8 @@ number:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid PF (Power Factor)"
-    id: ${device_type}_Grid_PF
+    name: "${entities_name_prefix}-Grid PF (Power Factor)"
+    id: "${entities_id_prefix}_Grid_PF"
     register_type: holding
     address: 621
     unit_of_measurement: "-"
@@ -68,8 +70,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Power L1"
-    id: ${device_type}_Grid_Power_L1
+    name: "${entities_name_prefix}-Grid Power L1"
+    id: "${entities_id_prefix}_Grid_Power_L1"
     register_type: holding
     address: 622
     unit_of_measurement: "W"
@@ -79,8 +81,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Power L2"
-    id: ${device_type}_Grid_Power_L2
+    name: "${entities_name_prefix}-Grid Power L2"
+    id: "${entities_id_prefix}_Grid_Power_L2"
     register_type: holding
     address: 623
     unit_of_measurement: "W"
@@ -90,8 +92,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Power L3"
-    id: ${device_type}_Grid_Power_L3
+    name: "${entities_name_prefix}-Grid Power L3"
+    id: "${entities_id_prefix}_Grid_Power_L3"
     register_type: holding
     address: 624
     unit_of_measurement: "W"
@@ -101,8 +103,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Grid Power Total"
-    id: ${device_type}_Grid_Power_Total
+    name: "${entities_name_prefix}-Grid Power Total"
+    id: "${entities_id_prefix}_Grid_Power_Total"
     register_type: holding
     address: 625
     unit_of_measurement: "W"
@@ -113,8 +115,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Grid Total Energy Bought"
-    id: ${device_type}_Grid_Total_Energy_Bought
+    name: "${entities_name_prefix}-Grid Total Energy Bought"
+    id: "${entities_id_prefix}_Grid_Total_Energy_Bought"
     register_type: holding
     address: 522
     unit_of_measurement: "kWh"
@@ -128,8 +130,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Grid Total Energy Sold"
-    id: ${device_type}_Grid_Total_Energy_Sold
+    name: "${entities_name_prefix}-Grid Total Energy Sold"
+    id: "${entities_id_prefix}_Grid_Total_Energy_Sold"
     register_type: holding
     address: 524
     unit_of_measurement: "kWh"
@@ -143,8 +145,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Grid Daily Energy Bought"
-    id: ${device_type}_Grid_Daily_Energy_Bought
+    name: "${entities_name_prefix}-Grid Daily Energy Bought"
+    id: "${entities_id_prefix}_Grid_Daily_Energy_Bought"
     register_type: holding
     address: 520
     unit_of_measurement: "kWh"
@@ -158,8 +160,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Grid Daily Energy Sold"
-    id: ${device_type}_Grid_Daily_Energy_Sold
+    name: "${entities_name_prefix}-Grid Daily Energy Sold"
+    id: "${entities_id_prefix}_Grid_Daily_Energy_Sold"
     register_type: holding
     address: 521
     unit_of_measurement: "kWh"
@@ -173,8 +175,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Current L1"
-    id: ${device_type}_Grid_Current_L1
+    name: "${entities_name_prefix}-Grid Current L1"
+    id: "${entities_id_prefix}_Grid_Current_L1"
     register_type: holding
     address: 630
     unit_of_measurement: "A"
@@ -187,8 +189,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Current L2"
-    id: ${device_type}_Grid_Current_L2
+    name: "${entities_name_prefix}-Grid Current L2"
+    id: "${entities_id_prefix}_Grid_Current_L2"
     register_type: holding
     address: 631
     unit_of_measurement: "A"
@@ -201,8 +203,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Current L3"
-    id: ${device_type}_Grid_Current_L3
+    name: "${entities_name_prefix}-Grid Current L3"
+    id: "${entities_id_prefix}_Grid_Current_L3"
     register_type: holding
     address: 632
     unit_of_measurement: "A"
@@ -215,8 +217,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Phase L1"
-    id: ${device_type}_Grid_Voltage_Phase_L1
+    name: "${entities_name_prefix}-Grid Voltage Phase L1"
+    id: "${entities_id_prefix}_Grid_Voltage_Phase_L1"
     register_type: holding
     address: 598
     unit_of_measurement: "V"
@@ -229,8 +231,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Phase L2"
-    id: ${device_type}_Grid_Voltage_Phase_L2
+    name: "${entities_name_prefix}-Grid Voltage Phase L2"
+    id: "${entities_id_prefix}_Grid_Voltage_Phase_L2"
     register_type: holding
     address: 599
     unit_of_measurement: "V"
@@ -243,8 +245,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Phase L3"
-    id: ${device_type}_Grid_Voltage_Phase_L3
+    name: "${entities_name_prefix}-Grid Voltage Phase L3"
+    id: "${entities_id_prefix}_Grid_Voltage_Phase_L3"
     register_type: holding
     address: 600
     unit_of_measurement: "V"
@@ -258,8 +260,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Line L1L2"
-    id: ${device_type}_Grid_Voltage_Line_L1L2
+    name: "${entities_name_prefix}-Grid Voltage Line L1L2"
+    id: "${entities_id_prefix}_Grid_Voltage_Line_L1L2"
     register_type: holding
     address: 601
     unit_of_measurement: "V"
@@ -272,8 +274,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Line L2"
-    id: ${device_type}_Grid_Voltage_Line_L2L3
+    name: "${entities_name_prefix}-Grid Voltage Line L2"
+    id: "${entities_id_prefix}_Grid_Voltage_Line_L2L3"
     register_type: holding
     address: 602
     unit_of_measurement: "V"
@@ -286,8 +288,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Grid Voltage Line L3L1"
-    id: ${device_type}_Grid_Voltage_Line_L3L1
+    name: "${entities_name_prefix}-Grid Voltage Line L3L1"
+    id: "${entities_id_prefix}_Grid_Voltage_Line_L3L1"
     register_type: holding
     address: 603
     unit_of_measurement: "V"

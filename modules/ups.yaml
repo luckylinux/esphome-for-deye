@@ -1,8 +1,8 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-UPS Load Side Active Power L1"
-    id: ${device_type}_UPS_Load_Side_Active_Power_L1
+    name: "${entities_name_prefix}-UPS Load Side Active Power L1"
+    id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L1"
     register_type: holding
     address: 640
     unit_of_measurement: "W"
@@ -12,8 +12,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-UPS Load Side Active Power L2"
-    id: ${device_type}_UPS_Load_Side_Active_Power_L2
+    name: "${entities_name_prefix}-UPS Load Side Active Power L2"
+    id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L2"
     register_type: holding
     address: 641
     unit_of_measurement: "W"
@@ -23,8 +23,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-UPS Load Side Active Power L3"
-    id: ${device_type}_UPS_Load_Side_Active_Power_L3
+    name: "${entities_name_prefix}-UPS Load Side Active Power L3"
+    id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L3"
     register_type: holding
     address: 642
     unit_of_measurement: "W"
@@ -34,8 +34,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-UPS Load Side Active Power Total"
-    id: ${device_type}_UPS_Load_Side_Active_Power_Total
+    name: "${entities_name_prefix}-UPS Load Side Active Power Total"
+    id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_Total"
     register_type: holding
     address: 643
     unit_of_measurement: "W"

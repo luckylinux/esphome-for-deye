@@ -2,12 +2,12 @@ text_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    id: ${device_type}_Status_Running_Status
     bitmask: 0
     register_type: holding
     address: 500
     raw_encode: HEXBYTES
-    name: ${device_type}-Status - Running Status
+    id: "${entities_id_prefix}_Status_Running_Status"
+    name: "${entities_name_prefix}-Status - Running Status"
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
@@ -24,8 +24,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Warning1"
-    id:  ${device_type}_Status_Warning1
+    name: "${entities_name_prefix}-Status - Warning1"
+    id: "${entities_id_prefix}_Status_Warning1"
     register_type: holding
     address: 553
     accuracy_decimals: 0
@@ -34,8 +34,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Warning2"
-    id:  ${device_type}_Status_Warning2
+    name: "${entities_name_prefix}-Status - Warning2"
+    id: "${entities_id_prefix}_Status_Warning2"
     register_type: holding
     address: 554
     accuracy_decimals: 0
@@ -44,8 +44,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Warning3"
-    id:  ${device_type}_Status_Warning3
+    name: "${entities_name_prefix}-Status - Warning3"
+    id: "${entities_id_prefix}_Status_Warning3"
     register_type: holding
     address: 555
     accuracy_decimals: 0
@@ -54,8 +54,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Error1"
-    id:  ${device_type}_Status_Error1
+    name: "${entities_name_prefix}-Status - Error1"
+    id: "${entities_id_prefix}_Status_Error1"
     register_type: holding
     address: 556
     accuracy_decimals: 0
@@ -64,8 +64,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Error2"
-    id:  ${device_type}_Status_Error2
+    name: "${entities_name_prefix}-Status - Error2"
+    id: "${entities_id_prefix}_Status_Error2"
     register_type: holding
     address: 557
     accuracy_decimals: 0
@@ -74,8 +74,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Status - Error3"
-    id:  ${device_type}_Status_Error3
+    name: "${entities_name_prefix}-Status - Error3"
+    id: "${entities_id_prefix}_Status_Error3"
     register_type: holding
     address: 558
     accuracy_decimals: 0
@@ -83,8 +83,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${device_type}-Status - Failure Status of Communication Board"
-    id:  ${device_type}_Status_Failure_Status_of_Communication_Board
+    name: "${entities_name_prefix}-Status - Failure Status of Communication Board"
+    id: "${entities_id_prefix}_Status_Failure_Status_of_Communication_Board"
     register_type: holding
     address: 548
     accuracy_decimals: 0

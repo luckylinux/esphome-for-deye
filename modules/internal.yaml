@@ -4,8 +4,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Internal_Active Power Generation of Today"
-    id: ${device_type}_Internal_Active_Power_Generation_of_Today
+    name: "${entities_name_prefix}-Internal_Active Power Generation of Today"
+    id: ${entities_id_prefix}_Internal_Active_Power_Generation_of_Today
     register_type: holding
     address: 502
     unit_of_measurement: "kWh"
@@ -20,8 +20,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
-    name: "${device_type}-Internal_Reactive Power Generation of Today"
-    id: ${device_type}_Internal_Reactive_Power_Generation_of_Today
+    name: "${entities_name_prefix}-Internal_Reactive Power Generation of Today"
+    id: ${entities_id_prefix}_Internal_Reactive_Power_Generation_of_Today
     register_type: holding
     address: 501
     unit_of_measurement: "kVarh"
@@ -35,8 +35,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT Power L1"
-    id: ${device_type}_Internal_CT_Power_L1
+    name: "${entities_name_prefix}-Internal CT Power L1"
+    id: ${entities_id_prefix}_Internal_CT_Power_L1
     register_type: holding
     address: 604
     unit_of_measurement: "W"
@@ -47,8 +47,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT Power L2"
-    id: ${device_type}_Internal_CT_Power_L2
+    name: "${entities_name_prefix}-Internal CT Power L2"
+    id: ${entities_id_prefix}_Internal_CT_Power_L2
     register_type: holding
     address: 605
     unit_of_measurement: "W"
@@ -59,8 +59,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT Power L3"
-    id: ${device_type}_Internal_CT_Power_L3
+    name: "${entities_name_prefix}-Internal CT Power L3"
+    id: ${entities_id_prefix}_Internal_CT_Power_L3
     register_type: holding
     address: 606
     unit_of_measurement: "W"
@@ -71,8 +71,8 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: "${device_type}-Internal CT Power Total "
-    id: ${device_type}_Internal_CT_Power_Total
+    name: "${entities_name_prefix}-Internal CT Power Total "
+    id: ${entities_id_prefix}_Internal_CT_Power_Total
     register_type: holding
     address: 607
     unit_of_measurement: "W"
@@ -85,8 +85,8 @@ sensor:
   #- platform: modbus_controller 
   #  modbus_controller_id: ${modbus_controller_id}
   #  skip_updates: 10
-  #  name: "${device_type}-Internal Total Consumption"
-  #  id: ${device_type}_Total_Consumption
+  #  name: "${entities_name_prefix}-Internal Total Consumption"
+  #  id: ${entities_id_prefix}_Total_Consumption
   #  register_type: holding
   #  address: 527
   #  unit_of_measurement: "kWh"
