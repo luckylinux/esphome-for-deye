@@ -2,7 +2,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Control_Mode
+    id: "${entities_id_prefix}_Battery_Control_Mode"
     name: "${device_type}-Battery Control Mode"
     address: 98
     value_type: U_WORD
@@ -27,7 +27,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Equalization_voltage
+    id: "${entities_id_prefix}_Battery_Equalization_voltage"
     name: "${device_type}-Battery Equalization voltage"
     address: 99
     unit_of_measurement: V
@@ -39,7 +39,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Absorption_voltage
+    id: "${device_type}_Battery_Absorption_voltage"
     name: "${device_type}-Battery Absorption voltage"
     address: 100
     unit_of_measurement: V
@@ -51,7 +51,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Float_voltage
+    id: "${device_type}_Battery_Float_voltage"
     name: "${device_type}-Battery Float voltage"
     address: 101
     unit_of_measurement: V
@@ -63,7 +63,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Equalization_day_cycle
+    id: "${device_type}_Battery_Equalization_day_cycle"
     name: "${device_type}-Battery Equalization Day Cycle"
     address: 105
     unit_of_measurement: days
@@ -75,7 +75,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Equalization_Time
+    id: "${device_type}_Battery_Equalization_Time"
     name: "${device_type}-Battery Equalization Time"
     address: 106
     unit_of_measurement: days
@@ -88,7 +88,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_capacity
+    id: "${device_type}_Battery_capacity"
     name: "${device_type}-Battery capacity"
     address: 101
     unit_of_measurement: V
@@ -100,7 +100,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Maximum_Charge_Current
+    id: "${device_type}_Battery_Maximum_Charge_Current"
     name: "${device_type}-Battery_Maximum Charge Current"
     address: 108
     unit_of_measurement: A
@@ -109,7 +109,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: ${device_type}_Battery_Maximum_Discharge_Current
+    id: "${device_type}_Battery_Maximum_Discharge_Current"
     name: "${device_type}-Battery_Maximum Discharge Current"
     address: 109
     unit_of_measurement: A
@@ -123,7 +123,7 @@ sensor:
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 5
     name: "${device_type}-Total charge of the battery"
-    id:  ${device_type}_battery_total_charge
+    id:  "${device_type}_battery_total_charge"
     register_type: holding
     address: 516
     unit_of_measurement: "kWh"
@@ -138,7 +138,7 @@ sensor:
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 5
     name: "${device_type}-Total discharge of the battery"
-    id:  ${device_type}_battery_total_discharge
+    id:  "${device_type}_battery_total_discharge"
     register_type: holding
     address: 518
     unit_of_measurement: "kWh"
@@ -152,7 +152,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${device_type}-battery temperature"
-    id:  ${device_type}_battery_temperature
+    id:  "${device_type}_battery_temperature"
     register_type: holding
     address: 586
     unit_of_measurement: "°C"
@@ -165,7 +165,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${device_type}-battery voltage"
-    id: ${device_type}_battery_voltage
+    id: "${device_type}_battery_voltage"
     register_type: holding
     address: 587
     unit_of_measurement: "V"

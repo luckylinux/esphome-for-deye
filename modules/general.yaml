@@ -2,8 +2,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-AC INV Relay # bit 0
-    id: ${device_type}_AC_INV_Relay
+    name: "${device_type}-AC INV Relay" # bit 0
+    id: "${entities_id_prefix}_AC_INV_Relay"
     register_type: holding
     address: 552
     bitmask: 0x1
@@ -11,8 +11,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-General - AC Load Relay Reserved # bit 1
-    id: ${device_type}_General_AC_Load_Relay_Reserved
+    name: "${device_type}-General - AC Load Relay Reserved" # bit 1
+    id: "${entities_id_prefix}_General_AC_Load_Relay_Reserved"
     register_type: holding
     address: 552
     bitmask: 0x2
@@ -20,8 +20,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-General - AC Grid Relay # bit 2
-    id: ${device_type}_General_AC_Grid_Relay
+    name: "${device_type}-General - AC Grid Relay" # bit 2
+    id: "${entities_id_prefix}_General_AC_Grid_Relay"
     register_type: holding
     address: 552
     bitmask: 0x4
@@ -29,8 +29,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-General - AC Generator Relay # bit 3
-    id: ${device_type}_General_AC_Generator_Relay
+    name: "${device_type}-General - AC Generator Relay" # bit 3
+    id: "${entities_id_prefix}_General_AC_Generator_Relay"
     register_type: holding
     address: 552
     bitmask: 0x8
@@ -38,8 +38,8 @@ binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
-    name: ${device_type}-General - Turn off/on status
-    id: ${device_type}_General_Turn_off_on_status
+    name: "${device_type}-General - Turn off/on status"
+    id: "${entities_id_prefix}_General_Turn_off_on_status"
     register_type: holding
     address: 551
     bitmask: 0x1
@@ -48,7 +48,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${device_type}-General - Heatsink Temperature"
-    id: ${device_type}_General_Heatsink_Temperature
+    id: "${entities_id_prefix}_General_Heatsink_Temperature"
     register_type: holding
     address: 541
     unit_of_measurement: "°C"
@@ -62,7 +62,8 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: ${device_type}-General - Energy Priority
+    name: "${device_type}-General - Energy Priority"
+    id: "${entities_id_prefix}_General_Energy_Priority"
     address: 141
     value_type: U_WORD
     optionsmap:
@@ -73,6 +74,7 @@ select:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "${device_type}-General - Limit Control Mode"
+    id: "${entities_id_prefix}_Limit_Control_Mode"
     address: 142
     value_type: U_WORD
     optionsmap:
