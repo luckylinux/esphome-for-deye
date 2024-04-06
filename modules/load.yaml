@@ -3,7 +3,7 @@ sensor:
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
     name: "${entities_name_prefix}-Load Total Energy"
-    id: ${entities_id_prefix}_Load_Total_Energy
+    id: "${entities_id_prefix}_Load_Total_Energy"
     register_type: holding
     address: 527
     unit_of_measurement: "kWh"
@@ -18,7 +18,7 @@ sensor:
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
     name: "${entities_name_prefix}-Load Daily Energy"
-    id: ${entities_id_prefix}_Load_Daily_Energy
+    id: "${entities_id_prefix}_Load_Daily_Energy"
     register_type: holding
     address: 526
     unit_of_measurement: "kWh"
@@ -32,7 +32,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Voltage Phase L1"
-    id: ${entities_id_prefix}_Load_Voltage_Phase_L1
+    id: "${entities_id_prefix}_Load_Voltage_Phase_L1"
     register_type: holding
     address: 644
     unit_of_measurement: "V"
@@ -45,7 +45,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Voltage Phase L2"
-    id: ${entities_id_prefix}_Load_Voltage_Phase_L2
+    id: "${entities_id_prefix}_Load_Voltage_Phase_L2"
     register_type: holding
     address: 645
     unit_of_measurement: "V"
@@ -58,7 +58,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Voltage Phase L3"
-    id: ${entities_id_prefix}_Load_Voltage_Phase_L3
+    id: "${entities_id_prefix}_Load_Voltage_Phase_L3"
     register_type: holding
     address: 646
     unit_of_measurement: "V"
@@ -72,7 +72,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Current L1"
-    id: ${entities_id_prefix}_Load_Current_L1
+    id: "${entities_id_prefix}_Load_Current_L1"
     register_type: holding
     address: 647
     unit_of_measurement: "A"
@@ -86,7 +86,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Current L2"
-    id: ${entities_id_prefix}_Load_Current_L2
+    id: "${entities_id_prefix}_Load_Current_L2"
     register_type: holding
     address: 648
     unit_of_measurement: "A"
@@ -100,7 +100,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Current L3"
-    id: ${entities_id_prefix}_Load_Current_L3
+    id: "${entities_id_prefix}_Load_Current_L3"
     register_type: holding
     address: 649
     unit_of_measurement: "V"
@@ -113,7 +113,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L1"
-    id: ${entities_id_prefix}_Load_Active_Power_L1
+    id: "${entities_id_prefix}_Load_Active_Power_L1"
     register_type: holding
     address: 650
     unit_of_measurement: "W"
@@ -124,7 +124,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L2"
-    id: ${entities_id_prefix}_Load_Active_Power_L2
+    id: "${entities_id_prefix}_Load_Active_Power_L2"
     register_type: holding
     address: 651
     unit_of_measurement: "W"
@@ -135,7 +135,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L3"
-    id: ${entities_id_prefix}_Load_Active_Power_L3
+    id: "${entities_id_prefix}_Load_Active_Power_L3"
     register_type: holding
     address: 652
     unit_of_measurement: "W"
@@ -146,7 +146,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power Total"
-    id: ${entities_id_prefix}_Load_Active_Power_Total
+    id: "${entities_id_prefix}_Load_Active_Power_Total"
     register_type: holding
     address: 653
     unit_of_measurement: "W"
@@ -157,7 +157,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Apparent Power Total"
-    id: ${entities_id_prefix}_Load_Apparent_Power_Total
+    id: "${entities_id_prefix}_Load_Apparent_Power_Total"
     register_type: holding
     address: 654
     unit_of_measurement: "VA"
@@ -168,7 +168,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Frequency"
-    id: ${entities_id_prefix}_load_Frequency
+    id: "${entities_id_prefix}_Load_Frequency"
     register_type: holding
     address: 655
     unit_of_measurement: "Hz"

@@ -2,7 +2,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Current L1"
-    id: ${entities_id_prefix}_Out_of_Grid_Current_L1
+    id: "${entities_id_prefix}_Out_of_Grid_Current_L1"
     register_type: holding
     address: 613
     unit_of_measurement: "A"
@@ -15,7 +15,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Current L2"
-    id: ${entities_id_prefix}_Out_of_Grid_Current_L2
+    id: "${entities_id_prefix}_Out_of_Grid_Current_L2"
     register_type: holding
     address: 614
     unit_of_measurement: "A"
@@ -28,7 +28,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Current L3"
-    id: ${entities_id_prefix}_Out_of_Grid_Current_L3
+    id: "${entities_id_prefix}_Out_of_Grid_Current_L3"
     register_type: holding
     address: 615
     unit_of_measurement: "A"
@@ -41,7 +41,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Active Power L1"
-    id: ${entities_id_prefix}_Out_of_Grid_Active_Power_L1
+    id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L1"
     register_type: holding
     address: 616
     unit_of_measurement: "W"
@@ -52,7 +52,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Active Power L2"
-    id: ${entities_id_prefix}_Out_of_Grid_Active_Power_L2
+    id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L2"
     register_type: holding
     address: 617
     unit_of_measurement: "W"
@@ -63,7 +63,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Active_Power L3"
-    id: ${entities_id_prefix}_Out_of_Grid_Active_Power_L3
+    id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L3"
     register_type: holding
     address: 618
     unit_of_measurement: "W"
@@ -74,7 +74,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Active Power Total"
-    id: ${entities_id_prefix}_Out_of_Grid_Active_Power_Total
+    id: "${entities_id_prefix}_Out_of_Grid_Active_Power_Total"
     register_type: holding
     address: 619
     unit_of_measurement: "W"
@@ -85,7 +85,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Out-of-Grid Apparent Power Total"
-    id: ${entities_id_prefix}_Out_of_Grid_Apparent_Power_Total
+    id: "${entities_id_prefix}_Out_of_Grid_Apparent_Power_Total"
     register_type: holding
     address: 620
     unit_of_measurement: "VA"

@@ -2,7 +2,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L1"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Voltage_L1
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L1"
     register_type: holding
     address: 627
     unit_of_measurement: "V"
@@ -15,7 +15,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L2"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Voltage_L2
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L2"
     register_type: holding
     address: 628
     unit_of_measurement: "V"
@@ -28,7 +28,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L3"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Voltage_L3
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L3"
     register_type: holding
     address: 629
     unit_of_measurement: "V"
@@ -41,7 +41,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Current L1"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Current_L1
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L1"
     register_type: holding
     address: 630
     unit_of_measurement: "A"
@@ -54,7 +54,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Current L2"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Current_L2
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L2"
     register_type: holding
     address: 631
     unit_of_measurement: "A"
@@ -67,7 +67,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Phase Current L3"
-    id: ${entities_id_prefix}_Inverter_Output_Phase_Current_L3
+    id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L3"
     register_type: holding
     address: 632
     unit_of_measurement: "V"
@@ -80,7 +80,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Active Power L1"
-    id: ${entities_id_prefix}_Inverter_Output_Active_Power_L1
+    id: "${entities_id_prefix}_Inverter_Output_Active_Power_L1"
     register_type: holding
     address: 633
     unit_of_measurement: "W"
@@ -91,7 +91,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Active Power L2"
-    id: ${entities_id_prefix}_Inverter_Output_Active_Power_L2
+    id: "${entities_id_prefix}_Inverter_Output_Active_Power_L2"
     register_type: holding
     address: 634
     unit_of_measurement: "W"
@@ -102,7 +102,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Active Power L3"
-    id: ${entities_id_prefix}_Inverter_Output_Active_Power_L3
+    id: "${entities_id_prefix}_Inverter_Output_Active_Power_L3"
     register_type: holding
     address: 635
     unit_of_measurement: "W"
@@ -113,7 +113,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Active Power Total"
-    id: ${entities_id_prefix}_Inverter_Output_Active_Power_Total
+    id: "${entities_id_prefix}_Inverter_Output_Active_Power_Total"
     register_type: holding
     address: 636
     unit_of_measurement: "W"
@@ -124,7 +124,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Apparent Power Total"
-    id: ${entities_id_prefix}_Inverter_Output_Apparent_Power_Total
+    id: "${entities_id_prefix}_Inverter_Output_Apparent_Power_Total"
     register_type: holding
     address: 637
     unit_of_measurement: "VA"
@@ -135,7 +135,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter-Frequency"
-    id: ${entities_id_prefix}_Inverter_Frequency
+    id: "${entities_id_prefix}_Inverter_Frequency"
     register_type: holding
     address: 638
     unit_of_measurement: "Hz"

@@ -2,7 +2,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Power PV1"
-    id: ${entities_id_prefix}_Solar_Power_PV1
+    id: "${entities_id_prefix}_Solar_Power_PV1"
     register_type: holding
     address: 672
     unit_of_measurement: "W"
@@ -13,7 +13,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Power PV2"
-    id: ${entities_id_prefix}_Solar_Power_PV2
+    id: "${entities_id_prefix}_Solar_Power_PV2"
     register_type: holding
     address: 673
     unit_of_measurement: "W"
@@ -24,7 +24,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Voltage PV1"
-    id: ${entities_id_prefix}_Solar_Voltage_PV1
+    id: "${entities_id_prefix}_Solar_Voltage_PV1"
     register_type: holding
     address: 676
     unit_of_measurement: "V"
@@ -37,7 +37,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Voltage PV2"
-    id: ${entities_id_prefix}_Solar_Voltage_PV2
+    id: "${entities_id_prefix}_Solar_Voltage_PV2"
     register_type: holding
     address: 678
     unit_of_measurement: "V"
@@ -50,7 +50,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Current PV1"
-    id: ${entities_id_prefix}_Solar_Current_PV1
+    id: "${entities_id_prefix}_Solar_Current_PV1"
     register_type: holding
     address: 677
     unit_of_measurement: "A"
@@ -63,7 +63,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Current PV2"
-    id: ${entities_id_prefix}_Solar_Current_PV2
+    id: "${entities_id_prefix}_Solar_Current_PV2"
     register_type: holding
     address: 679
     unit_of_measurement: "A"
@@ -76,7 +76,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Daily Production PV"
-    id: ${entities_id_prefix}_Solar_Daily_Production_PV
+    id: "${entities_id_prefix}_Solar_Daily_Production_PV"
     register_type: holding
     address: 529
     unit_of_measurement: "kWh"
@@ -90,7 +90,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Daily Production PV1"
-    id: ${entities_id_prefix}_Solar_Daily_Production_PV1
+    id: "${entities_id_prefix}_Solar_Daily_Production_PV1"
     register_type: holding
     address: 530
     unit_of_measurement: "kWh"
@@ -104,7 +104,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Daily Production PV2"
-    id: ${entities_id_prefix}_Solar_Daily_Production_PV2
+    id: "${entities_id_prefix}_Solar_Daily_Production_PV2"
     register_type: holding
     address: 531
     unit_of_measurement: "kWh"
@@ -118,7 +118,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Solar Total Production PV"
-    id: ${entities_id_prefix}_Solar_Total_Production_PV
+    id: "${entities_id_prefix}_Solar_Total_Production_PV"
     register_type: holding
     address: 534
     skip_updates: 10
