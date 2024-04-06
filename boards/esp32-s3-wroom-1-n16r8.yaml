@@ -1,0 +1,76 @@
+# Work in progress ...
+
+esphome:
+  name: ${name}
+  platformio_options:
+#    board_upload.maximum_ram_size: 524288
+#    board_upload.flash_size: 16MB
+    board_build.flash_mode: dio
+    # Sources:
+    # - https://github.com/platformio/platform-espressif32/issues/989
+    # - https://github.com/esphome/issues/issues/5264
+    # - https://github.com/Bodmer/TFT_eSPI/discussions/2010
+    # - https://github.com/esphome/feature-requests/issues/1960#issuecomment-1315959255
+
+#    upload_speed: 921600
+#    monitor_speed: 115200
+#    board_build.mcu: esp32s3
+#    board_build.f_cpu: 240000000L
+#    board_build.flash_size: 16MB
+#    board_build.flash_mode: qio
+#    board_build.flash_type: qspi
+#    board_build.memory_type: qspi_opi
+#    board_build.memory_type: qio_opi
+#    board_build.memory_type: opi_opi
+#    board_build.boot: qio
+#    board_build.boot_freq: 80m
+#    board_build.arduino.memory_type: qio_opi # <- Recently REMOVED
+#    board_build.psram_type: opi
+
+#    board_build.arduino.memory_type: opi_opi #
+    build_flags:
+      - -DBOARD_HAS_PSRAM
+#      - -DARDUINO_USB_CDC_ON_BOOT=1
+      - -DCONFIG_ARDUINO_LOOP_STACK_SIZE=32768
+#      - -mfix-esp32-psram-cache-issue
+  comment: ${device_description}
+  project:
+    name: !secret project_name
+    version: !secret project_version
+
+
+esp32:
+  # Testing with ESP32 N16R8 Board
+  #board: lolin_s3
+  #board: esp32dev
+  board: esp32-s3-devkitc-1
+
+  # Tested with Atom S3 Lite
+  variant: esp32s3
+
+  # A partition table is needed for ESP32 / ESP32-S3 modules with EXTERNAL Flash / PSRAM
+  # Grab one or adapt one from: https://github.com/espressif/arduino-esp32/tree/master/tools/partitions
+#  partitions: "config/default_16MB.csv" # Seem to causes lots of reboots
+#  partitions: "config/default.csv"
+  flash_size: 16MB # EXTERNAL flash memory
+#  boot: qio
+  framework:
+#    type: arduino # Original
+    type: esp-idf    # Testing
+#    version: latest
+#    version: latest  # Testing
+#    platform_version: "6.6.0"
+#    sdkconfig_options:
+#      CONFIG_ESPTOOLPY_FLASHSIZE_16MB: "y"
+
+
+#    version: 5.0.6
+#    version: 5.2.1
+#    source: ~3.20005.0
+#    platform_version: platformio/espressif32@6.5.0
+#    sdkconfig_options:
+#      CONFIG_ESP32_S3_BOX_BOARD: "y"
+
+psram:
+  mode: octal
+  speed: 80MHz

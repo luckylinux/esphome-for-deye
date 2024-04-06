@@ -28,8 +28,14 @@ packages:
   restart: !include config/restart.yaml
 
   web_server: !include config/web_server.yaml
-  esphome: !include config/esphome.yaml
-  board: !include config/esp32.yaml
+
+  # To be deprecated soon in favour of core profiles
+  #esphome: !include config/esphome.yaml
+  #board: !include config/esp32.yaml
+
+  core: !include boards/esp32-s3-wroom-1-n16r8.yaml
+  #core: !include boards/esp32-s3_m5stack_atoms3.yaml
+
   logger: !include config/logging.yaml
   captive_portal: !include config/captive_portal.yaml
   modbus: !include config/modbus.yaml

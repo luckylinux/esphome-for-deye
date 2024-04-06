@@ -71,6 +71,7 @@ cp $currentpath/*.yaml ./
 cp -r $currentpath/web_server ./
 
 # Copy Required Subpackages for Configuration
+cp -r $currentpath/boards ./
 cp -r $currentpath/config ./
 cp -r $currentpath/modules ./
 
