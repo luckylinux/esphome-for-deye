@@ -4,7 +4,7 @@ substitutions:
   modbus_controller_id: sg04lp3                                      # Just a random name for the modbus controler
 
   # Until proper renaming of ID/Names prefixes can be performed, just use the entities_id_prefix variable
-  device_type: !secret entities_id_prefix                            # All entities in Home Assistant will start with this text to help identify the entities
+  #device_type: !secret entities_id_prefix                            # All entities in Home Assistant will start with this text to help identify the entities
 
   # To be implemented in all the YAML files
   entities_id_prefix: !secret entities_id_prefix                     # All entities in Home Assistant will start with this text to help identify the entities
