@@ -57,7 +57,7 @@ done
 entities_name_prefix="${name}-sun12k"
 
 # Determine entities prefix for ids (cannot contain dashes or spaces)
-entities_id_prefix=${name/"-"/"_"}
+entities_id_prefix=${name//"-"/"_"}
 entities_id_prefix="${entities_id_prefix}_sun12k"
 
 
