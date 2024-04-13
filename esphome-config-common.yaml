@@ -36,7 +36,7 @@ packages:
 
   restart: !include config/restart.yaml
 
-  web_server: !include config/web_server.yaml
+  #web_server: !include config/web_server.yaml
 
   # Select the Board you plan to use
   core: !include boards/esp32-s3-wroom-1-n16r8.yaml
