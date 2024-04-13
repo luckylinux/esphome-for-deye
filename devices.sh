@@ -10,22 +10,19 @@ topic_prefix=()
 # Populate device list
 # Inverter M01 (Master)
 names[0]="deye-a"
-types[0]="master"
-#topic_prefix[0]="deye-a"
-topic_prefix[0]="inverter/deye-a"
+profiles[0]="master"
+topic_prefixes[0]="inverter/deye-a"
 
 # Inverter S02 (Slave)
 names[1]="deye-b"
-types[1]="slave"
-#topic_prefix[1]="deye-b"
-topic_prefix[1]="inverter/deye-b"
+profiles[1]="slave"
+topic_prefixes[1]="inverter/deye-b"
 
 
 # Inverter S03 (Slave)
 names[2]="deye-c"
-types[2]="slave"
-#topic_prefix[2]="deye-c"
-topic_prefix[2]="inverter/deye-c"
+profiles[2]="slave"
+topic_prefixes[2]="inverter/deye-c"
 
 
 # Get nzumber of devices
@@ -38,19 +35,19 @@ do
     for ((index=0;index<=$maxindex;index++))
     do
         name=${names[$index]}
-        type=${types[$index]}
+        profile=${profiles[$index]}
 
         selection=$((index+1))
         echo -e "[${selection}]"
         echo -e "\t Hostname: ${name}"
-        echo -e "\t Type: ${type}"
+        echo -e "\t Profile: ${profile}"
     done
 
     read -p "Enter desired configuration: " selection
     selected=$((selection-1))
     name=${names[$selected]}
-    type=${types[$selected]}
-    topic_prefix=${topic_prefix[$selected]}
+    profile=${profiles[$selected]}
+    topic_prefix=${topic_prefixes[$selected]}
 done
 
 # Determine entities prefix for names
@@ -62,7 +59,6 @@ entities_id_prefix="${entities_id_prefix}_sun12k"
 
 
 # Echo
-echo "Hostname set to <$name>"
-echo "Type is <$type>"
-#echo "MQTT Topic Prefix: ${topic_prefix}"
-echo "MQTT Topic: ${topic_prefix}"
+echo "Hostname set to <${name}>"
+echo "Profile is <${profile}>"
+echo "MQTT Topic: <${topic_prefix}>"

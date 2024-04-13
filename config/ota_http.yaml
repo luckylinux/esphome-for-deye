@@ -1,0 +1,10 @@
+ota_http:
+
+button:
+  - platform: template
+    name: "Firmware update"
+    on_press:
+      then:
+        - ota_http.flash:
+            url: http://example.com/firmware.bin
+        - logger.log: "This message should be not displayed(reboot)"

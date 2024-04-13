@@ -58,12 +58,10 @@ source $currentpath/devices.sh
 # Set Secrets
 source $currentpath/secrets.sh
 
-# Define ESPHome configuration file
-#esphomeconfig="esphome-config-$version-$type.yaml"
-esphomeconfig="esphome-config-$type.yaml"
+# Define ESPHome Configuration File
+esphomeconfig="esphome-config-${profile}.yaml"
 
-# Validate the configuration, create a binary, upload it, and start logs
-# If you use a esp8266 run the esp8266-examle.yaml
+# Copy required Files to build Folder
 cp $currentpath/$esphomeconfig ./$esphomeconfig
 cp $currentpath/*.yaml ./
 
