@@ -2,10 +2,9 @@
 
 # Configurations
 names=()
-macs=()
 protocols=()
-types=()
-topic_prefix=()
+profiles=()
+topic_prefixes=()
 
 # Populate device list
 # Inverter M01 (Master)
