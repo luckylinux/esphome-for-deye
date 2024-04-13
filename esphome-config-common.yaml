@@ -10,9 +10,9 @@ substitutions:
   entities_id_prefix: !secret entities_id_prefix                     # All entities in Home Assistant will start with this text to help identify the entities
   entities_name_prefix: !secret entities_name_prefix                 # All entities in Home Assistant will start with this text to help identify the entities
 
-external_components:
-  - source: github://pr#5586
-      components: [ ota_http ]
+#external_components:
+#  - source: github://pr#5586
+#      components: [ ota_http ]
 
 packages:
   api: !include config/api.yaml
@@ -32,7 +32,7 @@ packages:
   ota: !include config/ota.yaml
 
   # External component OTA (ESP32 Device DOWNLOADS Firmware from HTTP WebServer)
-  ota_http: !include config/ota_http.yaml
+  #ota_http: !include config/ota_http.yaml
 
   restart: !include config/restart.yaml
 
