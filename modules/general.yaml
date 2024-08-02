@@ -45,6 +45,20 @@ binary_sensor:
     bitmask: 0x1
 
 sensor:
+  # New - To be Tested
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - DC Transformer Temperature"
+    id: "${entities_id_prefix}_General_DC_Transformer_Temperature"
+    register_type: holding
+    address: 540
+    unit_of_measurement: "°C"
+    value_type: S_WORD
+    accuracy_decimals: 2
+    filters:
+      - offset: -1000
+      - multiply:  0.1
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-General - Heatsink Temperature"
@@ -57,6 +71,49 @@ sensor:
     filters:
       - offset: -1000
       - multiply:  0.1
+
+  # New - To be Tested
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Undefined Temperature 1"
+    id: "${entities_id_prefix}_General_Undefined_Temperature_1"
+    register_type: holding
+    address: 542
+    unit_of_measurement: "°C"
+    value_type: S_WORD
+    accuracy_decimals: 2
+    filters:
+      - offset: -1000
+      - multiply:  0.1
+
+  # New - To be Tested
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Undefined Temperature 2"
+    id: "${entities_id_prefix}_General_Undefined_Temperature_2"
+    register_type: holding
+    address: 543
+    unit_of_measurement: "°C"
+    value_type: S_WORD
+    accuracy_decimals: 2
+    filters:
+      - offset: -1000
+      - multiply:  0.1
+
+  # New - To be Tested
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Undefined Temperature 3"
+    id: "${entities_id_prefix}_General_Undefined_Temperature_3"
+    register_type: holding
+    address: 544
+    unit_of_measurement: "°C"
+    value_type: S_WORD
+    accuracy_decimals: 2
+    filters:
+      - offset: -1000
+      - multiply:  0.1
+
 
 select:
   - platform: modbus_controller

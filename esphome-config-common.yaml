@@ -28,6 +28,9 @@ packages:
       #mqtt_discovery: true # If "api" is NOT included, turn on MQTT autodiscovery feature for Home Assistant
   wifi: !include config/wifi.yaml
 
+  # Include Safe Mode Configuration
+  safe_mode: !include config/safe_mode.yaml
+
   # Core OTA (client UPLOADS Firmware to ESP32 Device)
   ota: !include config/ota.yaml
 
@@ -39,8 +42,8 @@ packages:
   #web_server: !include config/web_server.yaml
 
   # Select the Board you plan to use
-  core: !include boards/esp32-s3-wroom-1-n16r8.yaml
-  #core: !include boards/esp32-s3_m5stack_atoms3.yaml
+  #core: !include boards/esp32-s3-wroom-1-n16r8.yaml
+  core: !include boards/esp32-s3_m5stack_atoms3.yaml
 
   logger: !include config/logging.yaml
   captive_portal: !include config/captive_portal.yaml

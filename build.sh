@@ -21,7 +21,7 @@ mkdir -p $buildpath
 cd $buildpath
 
 # Create venv
-sudo apt-get -y install python3.11-venv
+#sudo apt-get -y install python3.11-venv
 python3 -m venv ./venv
 
 # Active venv
@@ -31,7 +31,7 @@ source venv/bin/activate
 pip3 install esphome # Optionally specify the desired version
 
 # Upgrade ESPHome
-#pip install --upgrade esphome # Force upgrade to latest version
+pip install --upgrade esphome # Force upgrade to latest version
 
 # Clone external component if needed
 version=$(date +%Y%m%d)

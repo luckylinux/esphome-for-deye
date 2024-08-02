@@ -1,4 +1,6 @@
 ota:
-  safe_mode: true
+  platform: esphome
+  # 'safe_mode' (and its related configuration variables) has moved from 'ota' to its own component. See https://esphome.io/components/safe_mode.
+  #safe_mode: true
   version: 2
   password: !secret ota_password
