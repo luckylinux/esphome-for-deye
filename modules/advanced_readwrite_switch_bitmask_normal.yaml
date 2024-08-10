@@ -1,0 +1,122 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 1
+    name: "${entities_name_prefix} - Advanced Register 178"
+    id: "${entities_id_prefix}_Advanced_Register_178"
+    register_type: holding
+    value_type: U_WORD
+    #internal: true
+    address: 178
+
+switch:
+  # It's not fully clear what bit 0 & bit 1 enable or disable
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - Function Enable" # bit 0 & 1
+    id: "${entities_id_prefix}_Advanced_Function_Enable"
+    register_type: holding
+    address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
+    bitmask: 0x1 # bit 0 is variable (0 = disabled , 1 = enabled)
+                 # bit 1 is fixed = 1 for both disabled and enabled
+                 # Use bitmask = 0x1
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - Generator Peak Shaving Enable" # bit 2 & 3
+    id: "${entities_id_prefix}_Advanced_Generator_Peak_Shaving_Enable"
+    register_type: holding
+    address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
+    bitmask: 0x4 # bit 2 is variable (0 = disabled , 1 = enabled)
+                 # bit 3 is fixed = 1 for both disabled and enabled
+                 # Use bitmask = 0x4
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - Grid Peak Shaving Enable" # bit 4 & 5
+    id: "${entities_id_prefix}_Advanced_Grid_Peak_Shaving_Enable"
+    register_type: holding
+    address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
+    bitmask: 0x10 # bit 4 is variable (0 = disabled , 1 = enabled)
+                  # bit 5 is fixed = 1 for both disabled and enabled
+                  # Use bitmask = 0x10
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - On Grid Always On Enable" # bit 6 & 7
+    id: "${entities_id_prefix}_Advanced_On_Grid_Always_On_Enable"
+    register_type: holding
+    address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
+    bitmask: 0x40 # bit 6 is variable (0 = disabled , 1 = enabled)
+                  # bit 7 is fixed = 1 for both disabled and enabled
+                  # Use bitmask = 0x40
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+  
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - External Relay" # bit 8 & 9
+    id: "${entities_id_prefix}_Advanced_External_Relay"
+    register_type: holding
+    address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
+    bitmask: 0x100 # bit 8 is variable (0 = disabled , 1 = enabled)
+                   # bit 9 is fixed = 1 for both disabled and enabled
+                   # Use bitmask = 0x100
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 2
+    name: "${entities_name_prefix}-Advanced - BMS Err-Stop" # bit 10 & 11
+    id: "${entities_id_prefix}_Advanced_BMS_Err_Stop"
+    register_type: holding
+    address: 178
+    bitmask: 0x400  # bit 10 is variable (0 = disabled , 1 = enabled)
+                    # bit 11 is fixed = 1 for both disabled and enabled
+                    # Use bitmask = 0x400
+
+    entity_category: config
+    icon: "mdi:toggle-switch"
+
+
+# Notes to be considered to implement multi bit modbus
+#https://community.home-assistant.io/t/modbus-register-control-with-3-or-more-values/649266
+#https://community.home-assistant.io/t/modbus-two-bit-control-switch/633398
+#https://esphome.io/components/switch/modbus_controller.html
+#https://esphome.io/components/text_sensor/modbus_controller.html
+# Particularly: raw_encode
+
+# Most promising using lambda: https://github.com/esphome/issues/issues/3857#issuecomment-1591016833

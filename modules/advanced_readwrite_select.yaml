@@ -11,7 +11,7 @@ sensor:
 
 # !! Must be changed to select !!
 # Switch write_lambda will not set the payload using "return" statement (it only accepts true/false values and all numeric != 0 is interpreted as true)
-switch:
+select:
   # It's not fully clear what bit 0 & bit 1 enable or disable
   - platform: modbus_controller
     use_write_multiple: true
@@ -19,17 +19,41 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Function Enable" # bit 0 & 1
     id: "${entities_id_prefix}_Advanced_Function_Enable"
-    register_type: holding
+    #register_type: holding
     address: 178
 
-    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
-    bitmask: 0x1 # bit 0 is variable (0 = disabled , 1 = enabled)
-                 # bit 1 is fixed = 1 for both disabled and enabled
-                 # Use bitmask = 0x1
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 0 is variable (0 = disabled , 1 = enabled)
+    # bit 1 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x1
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x1
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_Function_Enable = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -41,7 +65,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 1);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 1);
       if (x == 0) {
           write_value = current_value & ~0x2;  // Set bit 1 to 0
       } else {
@@ -49,7 +73,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
@@ -63,17 +87,41 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Generator Peak Shaving Enable" # bit 2 & 3
     id: "${entities_id_prefix}_Advanced_Generator_Peak_Shaving_Enable"
-    register_type: holding
+    #register_type: holding
     address: 178
 
-    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
-    bitmask: 0x4 # bit 2 is variable (0 = disabled , 1 = enabled)
-                 # bit 3 is fixed = 1 for both disabled and enabled
-                 # Use bitmask = 0x4
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 2 is variable (0 = disabled , 1 = enabled)
+    # bit 3 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x4
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x4
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_Generator_Peak_Shaving_Enable = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -85,7 +133,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 3);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 3);
       if (x == 0) {
           write_value = current_value & ~0x8;  // Set bit 3 to 0
       } else {
@@ -93,7 +141,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
@@ -107,17 +155,41 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Grid Peak Shaving Enable" # bit 4 & 5
     id: "${entities_id_prefix}_Advanced_Grid_Peak_Shaving_Enable"
-    register_type: holding
+    #register_type: holding
     address: 178
 
-    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
-    bitmask: 0x10 # bit 4 is variable (0 = disabled , 1 = enabled)
-                  # bit 5 is fixed = 1 for both disabled and enabled
-                  # Use bitmask = 0x10
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 4 is variable (0 = disabled , 1 = enabled)
+    # bit 5 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x10
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x10
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_Grid_Peak_Shaving_Enable = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -129,7 +201,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 5);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 5);
       if (x == 0) {
           write_value = current_value & ~0x20;  // Set bit 5 to 0
       } else {
@@ -137,7 +209,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
@@ -151,17 +223,42 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - On Grid Always On Enable" # bit 6 & 7
     id: "${entities_id_prefix}_Advanced_On_Grid_Always_On_Enable"
-    register_type: holding
+    #register_type: holding
     address: 178
 
-    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
-    bitmask: 0x40 # bit 6 is variable (0 = disabled , 1 = enabled)
-                  # bit 7 is fixed = 1 for both disabled and enabled
-                  # Use bitmask = 0x40
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 6 is variable (0 = disabled , 1 = enabled)
+    # bit 7 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x40
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x40
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_On_Grid_Always_On_Enable = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
+
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -173,7 +270,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 7);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 7);
       if (x == 0) {
           write_value = current_value & ~0x80;  // Set bit 7 to 0
       } else {
@@ -181,7 +278,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
@@ -195,17 +292,41 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - External Relay" # bit 8 & 9
     id: "${entities_id_prefix}_Advanced_External_Relay"
-    register_type: holding
+    #register_type: holding
     address: 178
 
-    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
-    bitmask: 0x100 # bit 8 is variable (0 = disabled , 1 = enabled)
-                   # bit 9 is fixed = 1 for both disabled and enabled
-                   # Use bitmask = 0x100
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 8 is variable (0 = disabled , 1 = enabled)
+    # bit 9 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x100
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x100
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_External_Relay = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -217,7 +338,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 9);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 9);
       if (x == 0) {
           write_value = current_value & ~0x200;  // Set bit 9 to 0
       } else {
@@ -225,7 +346,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
@@ -239,15 +360,41 @@ switch:
     skip_updates: 10
     name: "${entities_name_prefix}-Advanced - BMS Err-Stop" # bit 10 & 11
     id: "${entities_id_prefix}_Advanced_BMS_Err_Stop"
-    register_type: holding
+    #register_type: holding
     address: 178
-    bitmask: 0x400  # bit 10 is variable (0 = disabled , 1 = enabled)
-                    # bit 11 is fixed = 1 for both disabled and enabled
-                    # Use bitmask = 0x400
+
+    optionsmap:
+      "Disabled": 0
+      "Enabled": 1
+
+    # Deye Documentation ... TO_BE_COMPLETED
+    # bit 10 is variable (0 = disabled , 1 = enabled)
+    # bit 11 is fixed = 1 for both disabled and enabled
+    # Use bitmask = 0x400
+
+    lambda: |-
+      // Convert Register Value to Integer
+      uint16_t register_complete = int(x)
+
+      // Log Whole Modbus Register Contents
+      ESP_LOGE("main","Modbus: Number incoming value = %d",register_complete);
+
+      // Apply bitmask to extract the Value we are Actually Interested in
+      uint16_t setting_value = register_complete & 0x400
+
+      // Log Setting Value
+      ESP_LOGE("main","Modbus: Setting for Advanced_BMS_Err_Stop = %d",setting_value);
+      
+      
+      if (setting_value == 0)
+        return  std::string("Disabled");
+      if (setting_value == 1)
+        return  std::string("Enabled");
+      return {};
 
     write_lambda: |-
       // Debug
-      ESP_LOGI("main","Modbus: write gets = %d" , x);
+      ESP_LOGE("main","Modbus: write gets = %d" , value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
@@ -259,7 +406,7 @@ switch:
       uint16_t write_value = 0;
 
       // Define new Combined (all bits) value for the Register
-      ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 11);
+      ESP_LOGE("main","Modbus: apply Bitmask on Bit %d" , 11);
       if (x == 0) {
           write_value = current_value & ~0x800;  // Set bit 11 to 0
       } else {
@@ -267,7 +414,7 @@ switch:
       }
     
       // Log Value to be written to the Register
-      ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
+      ESP_LOGE("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
       return write_value;
