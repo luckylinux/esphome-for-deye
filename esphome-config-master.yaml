@@ -1,6 +1,6 @@
 packages:
   common: !include esphome-config-common.yaml
-  advanced: !include modules/advanced.yaml
+  advanced: !include modules/advanced_readwrite.yaml
 
   # Time of Use for Grid-Connected Systems
   time-of-use-common: !include modules/time-of-use-common.yaml

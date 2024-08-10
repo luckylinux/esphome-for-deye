@@ -1,77 +1,93 @@
-binary_sensor:
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 1
+    name: "${entities_name_prefix} - Advanced Register 178"
+    id: "${entities_id_prefix}_Advanced_Register_178"
+    register_type: read
+    value_type: U_WORD
+    #internal: true
+    address: 178
 
+binary_sensor:
   # It's not fully clear what bit 0 & bit 1 enable or disable
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Function Enable" # bit 0 & 1
     id: "${entities_id_prefix}_Advanced_Function_Enable"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x1 # bit 0 is variable (0 = disabled , 1 = enabled)
                  # bit 1 is fixed = 1 for both disabled and enabled
-                 # Maybe we can just set bit 0 and not touch bit 1 ?
                  # Use bitmask = 0x1
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Generator Peak Shaving Enable" # bit 2 & 3
     id: "${entities_id_prefix}_Advanced_Generator_Peak_Shaving_Enable"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x4 # bit 2 is variable (0 = disabled , 1 = enabled)
                  # bit 3 is fixed = 1 for both disabled and enabled
-                 # Maybe we can just set bit 2 and not touch bit 3 ?
-                 # Use bitmask = 0x1
+                 # Use bitmask = 0x4
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Grid Peak Shaving Enable" # bit 4 & 5
     id: "${entities_id_prefix}_Advanced_Grid_Peak_Shaving_Enable"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x10 # bit 4 is variable (0 = disabled , 1 = enabled)
                   # bit 5 is fixed = 1 for both disabled and enabled
-                  # Maybe we can just set bit 4 and not touch bit 5 ?
-                  # Use bitmask = 0x1
+                  # Use bitmask = 0x10
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - On Grid Always On Enable" # bit 6 & 7
     id: "${entities_id_prefix}_Advanced_On_Grid_Always_On_Enable"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x40 # bit 6 is variable (0 = disabled , 1 = enabled)
                   # bit 7 is fixed = 1 for both disabled and enabled
-                  # Maybe we can just set bit 6 and not touch bit 7 ?
-                  # Use bitmask = 0x1
+                  # Use bitmask = 0x40
   
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - External Relay" # bit 8 & 9
     id: "${entities_id_prefix}_Advanced_External_Relay"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x100 # bit 8 is variable (0 = disabled , 1 = enabled)
                    # bit 9 is fixed = 1 for both disabled and enabled
-                   # Maybe we can just set bit 8 and not touch bit 9 ?
-                   # Use bitmask = 0x1
+                   # Use bitmask = 0x100
 
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    skip_updates: 10
     name: "${entities_name_prefix}-Advanced - BMS Err-Stop" # bit 10 & 11
     id: "${entities_id_prefix}_Advanced_BMS_Err_Stop"
     register_type: holding
     address: 178
+
+    # Bitmask is ONLY for reading - See https://esphome.io/components/modbus_controller#bitmasks
     bitmask: 0x400  # bit 10 is variable (0 = disabled , 1 = enabled)
                     # bit 11 is fixed = 1 for both disabled and enabled
-                    # Maybe we can just set bit 10 and not touch bit 11 ?
                     # Use bitmask = 0x400
 
 

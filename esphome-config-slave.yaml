@@ -1,2 +1,3 @@
 packages:
   common: !include esphome-config-common.yaml
+  advanced: !include modules/advanced_readonly.yaml
