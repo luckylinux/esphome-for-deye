@@ -50,7 +50,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -94,7 +94,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -138,7 +138,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -182,7 +182,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -226,7 +226,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -268,7 +268,7 @@ switch:
       ESP_LOGI("main", "Modbus: modified Register 178 Value (write) = %d", write_value);
       
       // Return Result
-      return write_value*1.0;
+      return write_value;
 
     entity_category: config
     icon: "mdi:toggle-switch"
