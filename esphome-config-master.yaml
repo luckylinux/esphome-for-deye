@@ -1,8 +1,11 @@
 packages:
   common: !include esphome-config-common.yaml
-  #advanced: !include modules/advanced_readwrite_switch_bitmask_normal.yaml
-  #advanced: !include modules/advanced_readwrite_switch_bitmask_reversed.yaml
+  #advanced: !include modules/playground_not_working/advanced_readwrite_switch_bitmask_normal.yaml
+  #advanced: !include modules/playground_not_working/advanced_readwrite_switch_bitmask_reversed.yaml
+  #advanced: !include modules/playground_not_working/advanced_readwrite_switch_notworking.yaml
+  #advanced: !include modules/playground_not_working/advanced_readwrite_select_reversed.yaml
   advanced: !include modules/advanced_readwrite_select.yaml
+
 
   # Time of Use for Grid-Connected Systems
   time-of-use-common: !include modules/time-of-use-common.yaml

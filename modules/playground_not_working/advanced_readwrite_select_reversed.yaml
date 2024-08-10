@@ -29,7 +29,7 @@ select:
     # Deye Documentation ... TO_BE_COMPLETED
     # bit 0 is variable (0 = disabled , 1 = enabled)
     # bit 1 is fixed = 1 for both disabled and enabled
-    # Use bitmask = 0x1
+    # Use bitmask = 0x2
 
     lambda: |-
       // Convert Register Value to Integer
@@ -39,7 +39,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x1) >> 0;
+      uint16_t setting_value = (register_complete & 0x2) >> 1;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_Function_Enable = %d",setting_value);
@@ -70,9 +70,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 1);
       if (select_value == 0) {
-          write_value = current_value & ~0x1;  // Set bit 1 to 0
+          write_value = current_value & ~0x2;  // Set bit 1 to 0
       } else {
-          write_value = current_value | 0x1;   // Set bit 1 to 1
+          write_value = current_value | 0x2;   // Set bit 1 to 1
       }
     
       // Log Value to be written to the Register
@@ -110,7 +110,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x4) >> 2;
+      uint16_t setting_value = (register_complete & 0x8) >> 3;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_Generator_Peak_Shaving_Enable = %d",setting_value);
@@ -141,9 +141,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 3);
       if (select_value == 0) {
-          write_value = current_value & ~0x4;  // Set bit 3 to 0
+          write_value = current_value & ~0x8;  // Set bit 3 to 0
       } else {
-          write_value = current_value | 0x4;   // Set bit 3 to 1
+          write_value = current_value | 0x8;   // Set bit 3 to 1
       }
     
       // Log Value to be written to the Register
@@ -181,7 +181,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x10) >> 4;
+      uint16_t setting_value = (register_complete & 0x20) >> 5;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_Grid_Peak_Shaving_Enable = %d",setting_value);
@@ -213,9 +213,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 5);
       if (select_value == 0) {
-          write_value = current_value & ~0x10;  // Set bit 5 to 0
+          write_value = current_value & ~0x20;  // Set bit 5 to 0
       } else {
-          write_value = current_value | 0x10;   // Set bit 5 to 1
+          write_value = current_value | 0x20;   // Set bit 5 to 1
       }
     
       // Log Value to be written to the Register
@@ -253,7 +253,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x40) >> 6;
+      uint16_t setting_value = (register_complete & 0x80) >> 7;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_On_Grid_Always_On_Enable = %d",setting_value);
@@ -286,9 +286,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 7);
       if (select_value == 0) {
-          write_value = current_value & ~0x40;  // Set bit 7 to 0
+          write_value = current_value & ~0x80;  // Set bit 7 to 0
       } else {
-          write_value = current_value | 0x40;   // Set bit 7 to 1
+          write_value = current_value | 0x80;   // Set bit 7 to 1
       }
     
       // Log Value to be written to the Register
@@ -326,7 +326,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x100) >> 8;
+      uint16_t setting_value = (register_complete & 0x200) >> 9;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_External_Relay = %d",setting_value);
@@ -358,9 +358,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 9);
       if (select_value == 0) {
-          write_value = current_value & ~0x100;  // Set bit 9 to 0
+          write_value = current_value & ~0x200;  // Set bit 9 to 0
       } else {
-          write_value = current_value | 0x100;   // Set bit 9 to 1
+          write_value = current_value | 0x200;   // Set bit 9 to 1
       }
     
       // Log Value to be written to the Register
@@ -398,7 +398,7 @@ select:
       ESP_LOGI("main","Modbus: Register Read - Overall Value = %d",register_complete);
 
       // Apply bitmask to extract the Value we are Actually Interested in
-      uint16_t setting_value = (register_complete & 0x400) >> 10;
+      uint16_t setting_value = (register_complete & 0x800) >> 11;
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_BMS_Err_Stop = %d",setting_value);
@@ -430,9 +430,9 @@ select:
       // Define new Combined (all bits) value for the Register
       ESP_LOGI("main","Modbus: apply Bitmask on Bit %d" , 11);
       if (select_value == 0) {
-          write_value = current_value & ~0x400;  // Set bit 11 to 0
+          write_value = current_value & ~0x800;  // Set bit 11 to 0
       } else {
-          write_value = current_value | 0x400;   // Set bit 11 to 1
+          write_value = current_value | 0x800;   // Set bit 11 to 1
       }
     
       // Log Value to be written to the Register
