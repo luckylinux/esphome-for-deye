@@ -121,6 +121,34 @@ number:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${entities_name_prefix}-Today Charge of the Battery"
+    id: "${entities_id_prefix}_Battery_Today_Charge"
+    register_type: holding
+    address: 514
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: S_WORD
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    skip_updates: 10
+    name: "${entities_name_prefix}-Today Discharge of the Battery"
+    id: "${entities_id_prefix}_Battery_Today_Discharge"
+    register_type: holding
+    address: 515
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    value_type: S_WORD
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 5
     name: "${entities_name_prefix}-Total Charge of the Battery"
     id: "${entities_id_prefix}_Battery_Total_charge"
