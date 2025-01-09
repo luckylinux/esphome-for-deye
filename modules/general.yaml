@@ -1,6 +1,6 @@
 binary_sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-AC INV Relay" # bit 0
     id: "${entities_id_prefix}_AC_INV_Relay"
@@ -18,7 +18,7 @@ binary_sensor:
     bitmask: 0x2
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-General - AC Grid Relay" # bit 2
     id: "${entities_id_prefix}_General_AC_Grid_Relay"
@@ -27,7 +27,7 @@ binary_sensor:
     bitmask: 0x4
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-General - AC Generator Relay" # bit 3
     id: "${entities_id_prefix}_General_AC_Generator_Relay"
@@ -36,7 +36,7 @@ binary_sensor:
     bitmask: 0x8
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-General - Turn off/on status"
     id: "${entities_id_prefix}_General_Turn_off_on_status"

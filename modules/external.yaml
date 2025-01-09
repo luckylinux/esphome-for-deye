@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-External CT Active Power L1"
     id: "${entities_id_prefix}_External_CT_Active_Power_L1"
@@ -12,7 +12,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-External CT Active Power L2"
     id: "${entities_id_prefix}_External_CT_Active_Power_L2"
@@ -24,7 +24,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-External CT Active Power L3"
     id: "${entities_id_prefix}_External_CT_Active_Power_L3"
@@ -36,7 +36,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-External CT Active Power Total"
     id: "${entities_id_prefix}_External_CT_Active_Power_Total"
@@ -49,7 +49,7 @@ sensor:
 
   # External Power Grid - Total Apparent Power
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     skip_updates: 2
     name: "${entities_name_prefix}-External CT Apparent Power Total"
     id: "${entities_id_prefix}_External_CT_Apparent_Power_Total"

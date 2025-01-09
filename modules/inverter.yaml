@@ -111,7 +111,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     name: "${entities_name_prefix}-Inverter Output Active Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_Total"
     register_type: holding
@@ -122,7 +122,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_id_hf}
     name: "${entities_name_prefix}-Inverter Output Apparent Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Apparent_Power_Total"
     register_type: holding
