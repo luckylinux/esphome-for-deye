@@ -90,7 +90,7 @@ number:
     modbus_controller_id: ${modbus_controller_id}
     id: "${entities_id_prefix}_Battery_capacity"
     name: "${entities_name_prefix}-Battery capacity"
-    address: 101
+    address: 102
     unit_of_measurement: V
     value_type: U_WORD
     multiply: 1.0
