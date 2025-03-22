@@ -1,6 +1,6 @@
 text_sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     bitmask: 0
     register_type: holding
@@ -22,7 +22,7 @@ text_sensor:
 
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning1"
     id: "${entities_id_prefix}_Status_Warning1"
@@ -32,7 +32,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning2"
     id: "${entities_id_prefix}_Status_Warning2"
@@ -42,7 +42,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning3"
     id: "${entities_id_prefix}_Status_Warning3"
@@ -52,7 +52,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Error1"
     id: "${entities_id_prefix}_Status_Error1"
@@ -62,7 +62,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Error2"
     id: "${entities_id_prefix}_Status_Error2"
@@ -72,7 +72,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Status - Error3"
     id: "${entities_id_prefix}_Status_Error3"
@@ -82,7 +82,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Status - Failure Status of Communication Board"
     id: "${entities_id_prefix}_Status_Failure_Status_of_Communication_Board"
     register_type: holding

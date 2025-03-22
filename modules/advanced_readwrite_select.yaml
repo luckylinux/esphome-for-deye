@@ -416,13 +416,13 @@ select:
       uint16_t select_value = uint16_t(value);
 
       // Debug
-      esphome::ESP_LOGI("main","Modbus: Write - Advanced_BMS_Err_Stop set to %d" , select_value);
+      ESP_LOGI("main","Modbus: Write - Advanced_BMS_Err_Stop set to %d" , select_value);
   
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
 
       // Debug
-      esphome::ESP_LOGI("main","Modbus: Write - Previous Register 178 Value (unmodified) = %d", current_value);
+      ESP_LOGI("main","Modbus: Write - Previous Register 178 Value (unmodified) = %d", current_value);
 
       // Declare Variable
       uint16_t write_value = 0;

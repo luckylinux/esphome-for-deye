@@ -70,7 +70,7 @@ sensor:
     id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L3"
     register_type: holding
     address: 632
-    unit_of_measurement: "V"
+    unit_of_measurement: "A"
     state_class: "measurement"
     accuracy_decimals: 0
     filters:
@@ -111,7 +111,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Active Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_Total"
     register_type: holding
@@ -121,8 +121,10 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Inverter Output Apparent Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Apparent_Power_Total"
     register_type: holding
@@ -131,6 +133,8 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
+
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}

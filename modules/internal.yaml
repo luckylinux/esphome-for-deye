@@ -69,7 +69,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     skip_updates: 2
     name: "${entities_name_prefix}-Internal CT Power Total "
     id: "${entities_id_prefix}_Internal_CT_Power_Total"
@@ -79,6 +79,8 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
+
 
   # Total Consumption
   # Disabled since an entity with this Register is already defined in load.yaml

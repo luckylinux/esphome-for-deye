@@ -33,7 +33,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-UPS Load Side Active Power Total"
     id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_Total"
     register_type: holding

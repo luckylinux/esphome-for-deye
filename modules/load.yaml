@@ -111,7 +111,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L1"
     id: "${entities_id_prefix}_Load_Active_Power_L1"
     register_type: holding
@@ -121,8 +121,10 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L2"
     id: "${entities_id_prefix}_Load_Active_Power_L2"
     register_type: holding
@@ -132,8 +134,10 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power L3"
     id: "${entities_id_prefix}_Load_Active_Power_L3"
     register_type: holding
@@ -143,8 +147,10 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Active Power Total"
     id: "${entities_id_prefix}_Load_Active_Power_Total"
     register_type: holding
@@ -154,8 +160,10 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Load Apparent Power Total"
     id: "${entities_id_prefix}_Load_Apparent_Power_Total"
     register_type: holding
@@ -164,6 +172,8 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
+
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}

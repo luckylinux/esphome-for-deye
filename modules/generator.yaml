@@ -72,7 +72,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Generator Power Total"
     id: "${entities_id_prefix}_Generator_Power_Total"
     register_type: holding

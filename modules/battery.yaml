@@ -10,18 +10,27 @@ select:
       "Lead Acid": 0
       "Lithium (BMS)": 1
 
-  # To be completed
-  #- platform: modbus_controller
-  #  use_write_multiple: true
-  #  modbus_controller_id: ${modbus_controller_id}
-  #  id: "${entities_id_prefix}_Battery_Lithium_Type"
-  #  name: "${entities_name_prefix}-Battery Lithium Type"
-  #  address: 223
-  #  bitmask: 0x1
-  #  value_type: U_WORD
-  #  optionsmap:
-  #    "Pylon (CAN)": 0
-  #    "": 1
+
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: "${entities_id_prefix}_Battery_Lithium_Type"
+    name: "${entities_name_prefix}-Battery Lithium Type"
+    address: 223
+    value_type: U_WORD
+    optionsmap:
+      "Pylon / Solax / Universal CAN Protocol (CAN)": 0x0000
+      "Tianbangda RS485 Modbus": 0x0001
+      "KOK Protocol": 0x0002
+      "Keith Protocol": 0x0003
+      "Topband Protocol": 0x0004
+      "Pylontech 485 Protocol": 0x0005
+      "Jelais 485 Protocol": 0x0006
+      "Sunwoda 485 Protocol": 0x0007
+      "Xinruineng 485 Protocol": 0x0008
+      "Tianbangda 485 Protocol": 0x0009
+      "Shenggao Electric CAN Protocol": 0x000A
+
 
 number:
   - platform: modbus_controller
@@ -91,7 +100,7 @@ number:
     id: "${entities_id_prefix}_Battery_capacity"
     name: "${entities_name_prefix}-Battery capacity"
     address: 102
-    unit_of_measurement: V
+    unit_of_measurement: Ah
     value_type: U_WORD
     multiply: 1.0
     min_value: 0.00
@@ -133,6 +142,7 @@ sensor:
     value_type: S_WORD
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 10
@@ -147,6 +157,7 @@ sensor:
     value_type: S_WORD
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     skip_updates: 5
@@ -185,7 +196,7 @@ sensor:
     address: 586
     unit_of_measurement: "°C"
     accuracy_decimals: 1
-    value_type: U_WORD
+    value_type: S_WORD
     filters:
       - offset: -1000
       - multiply: 0.1
@@ -216,7 +227,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_hf}
+    modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Battery Output Power"
     id: "${entities_id_prefix}_Battery_Output_power"
     register_type: holding
@@ -225,6 +236,7 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
