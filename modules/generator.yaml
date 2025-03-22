@@ -47,9 +47,7 @@ sensor:
     unit_of_measurement: "W"
     state_class: "measurement"
     accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
-    value_type: U_WORD
+    value_type: S_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
@@ -60,7 +58,7 @@ sensor:
     unit_of_measurement: "W"
     state_class: "measurement"
     accuracy_decimals: 1
-    value_type: U_WORD
+    value_type: S_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
@@ -71,7 +69,7 @@ sensor:
     unit_of_measurement: "W"
     state_class: "measurement"
     accuracy_decimals: 1
-    value_type: U_WORD
+    value_type: S_WORD
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
@@ -82,4 +80,16 @@ sensor:
     unit_of_measurement: "W"
     state_class: "measurement"
     accuracy_decimals: 1
+    value_type: S_WORD
+
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: "${entities_id_prefix}_Generator_Minimum_Solar_Power"
+    name: "${entities_name_prefix}-Generator Minimum Solar Power to Enable"
+    address: 139
+    unit_of_measurement: W
     value_type: U_WORD
+    min_value: 0
+    max_value: 8000

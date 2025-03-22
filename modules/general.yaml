@@ -45,7 +45,15 @@ binary_sensor:
     bitmask: 0x1
 
 sensor:
-  # New - To be Tested
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Grid check from Meter or CT"
+    id: "${entities_id_prefix}_General_Grid_Check_Source"
+    register_type: holding
+    address: 344
+    unit_of_measurement: ""
+    value_type: U_WORD
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-General - DC Transformer Temperature"
@@ -138,3 +146,16 @@ select:
       "Selling first": 0
       "Zero export to load": 1
       "Zero export to CT": 2
+
+
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: "${entities_id_prefix}_General_CT_Ratio"
+    name: "${entities_name_prefix}-General - CT Ratio"
+    address: 347
+    value_type: U_WORD
+    multiply: 1.0
+    min_value: 100.00
+    max_value: 10000.00

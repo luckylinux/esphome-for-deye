@@ -80,6 +80,8 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   # Total Consumption
   # Disabled since an entity with this Register is already defined in load.yaml
   #- platform: modbus_controller 

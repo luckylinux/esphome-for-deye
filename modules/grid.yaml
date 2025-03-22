@@ -79,6 +79,8 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Grid Power L2"
@@ -89,6 +91,8 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
+
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
@@ -101,6 +105,8 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-Grid Power Total"
@@ -111,6 +117,8 @@ sensor:
     state_class: "measurement"
     accuracy_decimals: 0
     value_type: S_WORD
+
+
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
