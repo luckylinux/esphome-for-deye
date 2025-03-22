@@ -1,3 +1,8 @@
+# Important Notice:
+DO NOT USE RS485 ON THE BMS - PORT! This port only has a baudrate of 9600, which is too slow for regular updates.
+Use the Modbus port.
+Configure it to a baudrate (in the Advanced Menu) of 115200. This allows for updates every second.
+
 # ESPhome for deye
 ESPhome configuration for monitoring and control of Deye inverters in Home Assistant.
 This include all addresses i could see relevant from the inverter.
@@ -70,6 +75,7 @@ pip install --upgrade esphome
 ```
 
 ## Hardware diagram
+
 RX / TX between esp and ttl converter way have to be swapped. This seems to be a little different from espboard to espboard.
 Check Termination: check that 120 Ohm are between B+ and B- (short wire); for long wire use 120 Ohms on both sides.
 If it dosent communicate(RX/TX led both blinking) Try swap rx/tx on the esp.

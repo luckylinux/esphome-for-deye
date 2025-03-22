@@ -46,6 +46,66 @@ binary_sensor:
 
 sensor:
   # New - To be Tested
+ 
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Active Power Regulation"
+    id: "${entities_id_prefix}_General_Active_Power_Regulation"
+    register_type: holding
+    address: 77
+    unit_of_measurement: "%"
+    value_type: S_WORD
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1  # Converts value to percentage
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Reactive Power Regulation"
+    id: "${entities_id_prefix}_General_Reactive_Power_Regulation"
+    register_type: holding
+    address: 78
+    unit_of_measurement: "%"
+    value_type: S_WORD
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1  # Converts value to percentage
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Apparent Power Regulation"
+    id: "${entities_id_prefix}_General_Apparent_Power_Regulation"
+    register_type: holding
+    address: 79
+    unit_of_measurement: ""
+    value_type: S_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Island Protection Enable"
+    id: "${entities_id_prefix}_General_Island_Protection_Enable"
+    register_type: holding
+    address: 83
+    unit_of_measurement: ""
+    value_type: S_WORD
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - Grid Check Source"
+    id: "${entities_id_prefix}_General_Grid_Check_Source"
+    register_type: holding
+    address: 344
+    unit_of_measurement: ""
+    value_type: U_WORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${modbus_controller_id}
+    name: "${entities_name_prefix}-General - External Current Clamp Phase"
+    id: "${entities_id_prefix}_General_External_Current_Clamp_Phase"
+    register_type: holding
+    address: 144
+    unit_of_measurement: ""
+    value_type: S_WORD
+
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${entities_name_prefix}-General - DC Transformer Temperature"
@@ -138,3 +198,16 @@ select:
       "Selling first": 0
       "Zero export to load": 1
       "Zero export to CT": 2
+
+
+number:
+  - platform: modbus_controller
+    use_write_multiple: true
+    modbus_controller_id: ${modbus_controller_id}
+    id: "${entities_id_prefix}_General_CT_Ratio"
+    name: "${entities_name_prefix}-General - CT Ratio"
+    address: 347
+    value_type: U_WORD
+    multiply: 1.0
+    min_value: 100.00
+    max_value: 10000.00
