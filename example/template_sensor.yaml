@@ -1,0 +1,10 @@
+template:  
+  sensor:
+    - name: "Netzanschluss Leistung"
+      unit_of_measurement: "W"
+      state: >
+        {% set netz_deye = states('sensor.sun12k_external_ct_active_power_total') | float %}
+        {% set ratio = states('number.sun12k_general_ct_ratio') | float %} 
+
+        {{ (netz_deye * 2000 / ratio) | round(1, default=0) }}
+      device_class: power

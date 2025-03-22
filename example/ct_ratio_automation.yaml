@@ -1,0 +1,36 @@
+alias: Set CT Ratio Based on Netzanschluss Leistung
+description: Adjust sun12k_general_ct_ratio based on netzanschluss_leistung
+triggers:
+  - entity_id: sensor.netzanschluss_leistung
+    below: -8000
+    for: "00:00:10"
+    trigger: numeric_state
+  - entity_id: sensor.netzanschluss_leistung
+    above: -1000
+    for: "00:00:10"
+    trigger: numeric_state
+  - trigger: time_pattern
+    seconds: "30"
+actions:
+  - choose:
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.netzanschluss_leistung
+            below: -8000
+        sequence:
+          - target:
+              entity_id: number.sun12k_general_ct_ratio
+            data:
+              value: 1000
+            action: number.set_value
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.netzanschluss_leistung
+            above: -1000
+        sequence:
+          - target:
+              entity_id: number.sun12k_general_ct_ratio
+            data:
+              value: 2000
+            action: number.set_value
+mode: restart

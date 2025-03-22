@@ -1,0 +1,87 @@
+substitutions:
+  name: deye                                                       #name in ESPhome
+  esp_name: deye
+  device_description: "Esphome component for Deye sun-12k-sg04lp3"   #Description in ESPhome
+  modbus_controller_id: deye_modbus_controller                                   #just a random name for the modbus controler - this is the high frequency controller for live values
+  device_type: sun12k                                                #all entities in Home Assistant will start with this text to help identify the entitys 
+  entities_id_prefix: SUN12K
+  entities_name_prefix: SUN12K
+esphome:
+  name: ${name}
+
+esp32:
+  board: wt32-eth01
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+  level: INFO
+  baud_rate: 0
+
+# Enable Home Assistant API
+ota:
+  platform: esphome
+  password: !secret ota_password
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption
+
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 1
+  power_pin: GPIO16
+
+time:
+  - platform: homeassistant
+
+uart:
+  - id: uart_deye
+    tx_pin: GPIO17
+    rx_pin: GPIO05
+    baud_rate: 115200
+    stop_bits: 1
+    rx_buffer_size: 4096
+
+modbus:
+  - id: modbus_deye
+    uart_id: uart_deye
+ 
+modbus_controller:
+  - id: ${modbus_controller_id}
+    address: 0x1
+    modbus_id: modbus_deye
+    setup_priority: -10
+    update_interval: 1sec
+
+packages:
+  # Different modules for the different sections of the inverter
+  solar: !include esphome-for-deye/modules/solar.yaml
+  battery: !include esphome-for-deye/modules/battery.yaml
+
+  load: !include esphome-for-deye/modules/load.yaml
+  generator: !include esphome-for-deye/modules/generator.yaml # Generator, Micro Inverter or Smart Load
+  general: !include esphome-for-deye/modules/general.yaml
+  status: !include esphome-for-deye/modules/status.yaml
+  internal: !include esphome-for-deye/modules/internal.yaml # Internal CTs Current/Power Measurement
+  inverter: !include esphome-for-deye/modules/inverter.yaml
+  ups: !include esphome-for-deye/modules/ups.yaml
+  out-of-grid: !include esphome-for-deye/modules/out-of-grid.yaml
+
+  #
+  # Enable for grid-connected systems
+  grid: !include esphome-for-deye/modules/grid.yaml
+  external: !include esphome-for-deye/modules/external.yaml # External CTs Current/Power Measurement
+
+
+  advanced: !include esphome-for-deye/modules/advanced_readwrite_select.yaml
+  # Time of Use for Grid-Connected Systems
+  time-of-use-common: !include esphome-for-deye/modules/time-of-use-common.yaml
+  # Only Include ONE of these (select OR number)
+  time-of-use-time-as-select: !include esphome-for-deye/modules/time-of-use-time-as-select.yaml
+  #time-of-use-time-as-number: !include modules/time-of-use-time-as-number.yaml
