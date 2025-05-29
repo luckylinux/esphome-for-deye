@@ -345,7 +345,7 @@ select:
 
       // Debug
       ESP_LOGI("main","Modbus: Write - Advanced_External_Relay set to %d" , select_value);
-  
+
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
 
@@ -362,10 +362,10 @@ select:
       } else {
           write_value = current_value | 0x100;   // Set bit 9 to 1
       }
-    
+
       // Log Value to be written to the Register
       ESP_LOGI("main", "Modbus: Write - Updated Register 178 Value (write) = %d", write_value);
-      
+
       // Return Result
       return write_value;
 
@@ -402,8 +402,8 @@ select:
 
       // Log Setting Value
       ESP_LOGI("main","Modbus: Register Decode - Advanced_BMS_Err_Stop = %d",setting_value);
-      
-      
+
+
       if (setting_value == 0)
         return  std::string("Disabled");
       else
@@ -416,13 +416,13 @@ select:
       uint16_t select_value = uint16_t(value);
 
       // Debug
-      esphome::ESP_LOGI("main","Modbus: Write - Advanced_BMS_Err_Stop set to %d" , select_value);
-  
+      ESP_LOGI("main","Modbus: Write - Advanced_BMS_Err_Stop set to %d" , select_value);
+
       // Current Value of the Register (all bits)
       uint16_t current_value = id(${entities_id_prefix}_Advanced_Register_178).state;
 
       // Debug
-      esphome::ESP_LOGI("main","Modbus: Write - Previous Register 178 Value (unmodified) = %d", current_value);
+      ESP_LOGI("main","Modbus: Write - Previous Register 178 Value (unmodified) = %d", current_value);
 
       // Declare Variable
       uint16_t write_value = 0;
@@ -434,10 +434,10 @@ select:
       } else {
           write_value = current_value | 0x400;   // Set bit 11 to 1
       }
-    
+
       // Log Value to be written to the Register
       ESP_LOGI("main", "Modbus: Write - Updated Register 178 Value (write) = %d", write_value);
-      
+
       // Return Result
       return write_value;
 
