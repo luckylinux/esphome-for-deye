@@ -3,4 +3,12 @@ ota:
   # 'safe_mode' (and its related configuration variables) has moved from 'ota' to its own component. See https://esphome.io/components/safe_mode.
   #safe_mode: true
   version: 2
-  password: !secret ota_password
+
+  # Not needed anymore
+  # Disabled after getting WARNING 'ota' password wastes significant flash and RAM (about 3.5 KB and 60 bytes plus the password on the heap): the device already offers encryption with the 'api' encryption key, which authenticates any uploader that takes it, and a password only matters for uploaders without encryption support; remove 'password' and add 'encryption' under 'ota' so uploads use the key and encryption is required
+  # Requires `encryption` to be enabled
+  # Must be enabled prior to 2026.9.1 otherwise: ERROR An OTA encryption key is configured but the device did not offer encryption; refusing to send the image in plaintext. The running firmware predates ESPHome 2026.9.0 or has no 'api: encryption: key'. With an api key, install once without the 'ota: encryption:' block (that build offers encryption), then restore it; otherwise flash by serial or the web_server OTA platform.
+  # password: !secret ota_password
+
+  # Enable OTA Encryption
+  encryption:
