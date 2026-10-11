@@ -61,10 +61,14 @@ mkdir -p $project
 cd $project
 
 # Configure Device based on Database
-source $currentpath/devices.sh
+source "${currentpath}/devices.sh"
+
+# Create another subfolder for each Device
+mkdir -p "$name"
+cd "$name"
 
 # Set Secrets
-source $currentpath/secrets.sh
+source "${currentpath}/secrets.sh"
 
 # Define ESPHome Configuration File
 esphomeconfig="esphome-config-${profile}.yaml"

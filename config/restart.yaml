@@ -3,7 +3,7 @@ button:
     name: "${entities_name_prefix}- ESP32 Restart (Normal Mode)"
     id: "${entities_id_prefix}_ESP32_Restart_Normal_Mode"
     entity_category: config
-  
+
   - platform: safe_mode
     name: "${entities_name_prefix}- ESP32 Restart (Safe Mode)"
     id: "${entities_id_prefix}_ESP32_Restart_Safe_Mode"
