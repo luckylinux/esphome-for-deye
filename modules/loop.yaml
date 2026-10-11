@@ -1,0 +1,38 @@
+interval:
+  # Check every 5 minutes if WiFi is NOT Connected
+  # In that case, disable and re-enable the Adapter to attempt connection again
+  - interval: 300s
+    then:
+      - if:
+          condition: wifi.connected
+          then:
+            # Do Nothing
+          else:
+            - logger.log: WiFi was disconnected. Attempting to restart WiFi.
+            - wifi.disable:
+            - delay: 3s
+            - wifi.enable:
+            - delay: 1s
+
+  - interval: 1000ms
+    then:
+      - lambda: |-
+           // Store current Time
+           // id(current_sntp_timestamp) = id(sntp_time).utcnow().timestamp;
+           // id(current_homeassistant_timestamp) = id(homeassistant_time).utcnow().timestamp;
+
+           // Store current Time
+           // Only overwrite the global variable if a fresh sync exists
+           if (id(sntp_time).now().is_valid()) {
+              id(current_sntp_timestamp) = id(sntp_time).timestamp_now();
+           }
+          
+           // Store current Time
+           // Only overwrite the global variable if a fresh sync exists
+           if (id(homeassistant_time).now().is_valid()) {
+              id(current_homeassistant_timestamp) = id(homeassistant_time).timestamp_now();
+           }
+
+           // Debug Messages
+           // ESP_LOGI("main", "Current Time (SNTP) : %lld", id(current_sntp_timestamp));
+           // ESP_LOGI("main", "Current Time (HomeAssistant) : %lld", id(current_homeassistant_timestamp));

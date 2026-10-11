@@ -2,9 +2,9 @@
 sensor:
   # To be investigated - According to documentation active power should be in the 501 Register, not in the 502
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
-    name: "${entities_name_prefix}-Internal_Active Power Generation of Today"
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
+    name: "${entities_name_prefix}-Internal Active Power Generation of Today"
     id: "${entities_id_prefix}_Internal_Active_Power_Generation_of_Today"
     register_type: holding
     address: 502
@@ -18,9 +18,9 @@ sensor:
 
   # To be investigated - According to documentation active power should be in the 502 Register, not in the 501
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
-    name: "${entities_name_prefix}-Internal_Reactive Power Generation of Today"
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
+    name: "${entities_name_prefix}-Internal Reactive Power Generation of Today"
     id: "${entities_id_prefix}_Internal_Reactive_Power_Generation_of_Today"
     register_type: holding
     address: 501
@@ -33,8 +33,8 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Internal CT Power L1"
     id: "${entities_id_prefix}_Internal_CT_Power_L1"
     register_type: holding
@@ -45,8 +45,8 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Internal CT Power L2"
     id: "${entities_id_prefix}_Internal_CT_Power_L2"
     register_type: holding
@@ -57,8 +57,8 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Internal CT Power L3"
     id: "${entities_id_prefix}_Internal_CT_Power_L3"
     register_type: holding
@@ -69,8 +69,8 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Internal CT Power Total "
     id: "${entities_id_prefix}_Internal_CT_Power_Total"
     register_type: holding
@@ -83,7 +83,7 @@ sensor:
   # Total Consumption
   # Disabled since an entity with this Register is already defined in load.yaml
   #- platform: modbus_controller 
-  #  modbus_controller_id: ${modbus_controller_id}
+  #  modbus_controller_id: ${modbus_controller_fast}
   #  skip_updates: 10
   #  name: "${entities_name_prefix}-Internal Total Consumption"
   #  id: "${entities_id_prefix}_Total_Consumption"

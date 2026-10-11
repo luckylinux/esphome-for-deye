@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Verbose Mode
+# set -x
+
 # Define project
 project="esphome-for-deye"
 
@@ -15,8 +18,12 @@ board="esp32-s3-devkitc-1" # Works for Atom S3 Lite
 # Define variant
 variant="esp32s3" # Works for Atom S3 Lite
 
+# Define ESPHome Version
+# esphome_version="2026.5.3"
+esphome_version="2026.9.1"
+
 # Build folder
-buildpath="$HOME/ESPHome"
+buildpath="$HOME/ESPHome/${esphome_version}"
 mkdir -p $buildpath
 cd $buildpath
 
@@ -28,10 +35,11 @@ python3 -m venv ./venv
 source venv/bin/activate
 
 # Install ESPHome
-pip3 install esphome # Optionally specify the desired version
+pip3 install "esphome==${esphome_version}" # Optionally specify the desired version
 
 # Upgrade ESPHome
-pip install --upgrade esphome # Force upgrade to latest version
+# Force upgrade to latest version
+# pip install --upgrade esphome
 
 # Clone external component if needed
 version=$(date +%Y%m%d)

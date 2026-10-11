@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Voltage Phase L1"
     id: "${entities_id_prefix}_Generator_Voltage_Phase_L1"
     register_type: holding
@@ -13,7 +13,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Voltage Phase L2"
     id: "${entities_id_prefix}_Generator_Voltage_Phase_L2"
     register_type: holding
@@ -26,7 +26,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Voltage Phase L3"
     id: "${entities_id_prefix}_Generator_Voltage_Phase_L3"
     register_type: holding
@@ -39,7 +39,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Power L1"
     id: "${entities_id_prefix}_Generator_Power_L1"
     register_type: holding
@@ -52,7 +52,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Power L2"
     id: "${entities_id_prefix}_Generator_Power_L2"
     register_type: holding
@@ -63,7 +63,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Power L3"
     id: "${entities_id_prefix}_Generator_Power_L3"
     register_type: holding
@@ -74,7 +74,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Generator Power Total"
     id: "${entities_id_prefix}_Generator_Power_Total"
     register_type: holding

@@ -2,7 +2,7 @@ esphome:
   name: ${name}
   platformio_options:
     board_build.flash_mode: dio
-    build_flags:
+  build_flags:
       - -DCONFIG_ARDUINO_LOOP_STACK_SIZE=32768
   comment: ${device_description}
   project:

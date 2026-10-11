@@ -1,0 +1,96 @@
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: !secret time_zone
+    servers:
+      - !secret time_server
+    update_interval: 1min
+
+  - platform: homeassistant
+    id: homeassistant_time
+    timezone: !secret time_zone
+    update_interval: 1min
+
+globals:
+  - id: "current_sntp_timestamp"
+    type: time_t
+    restore_value: true
+    initial_value: '0'
+  - id: "current_homeassistant_timestamp"
+    type: time_t
+    restore_value: true
+    initial_value: '0'
+
+sensor:
+  - platform: uptime
+    name: "${entities_name_prefix}-Uptime Sensor"
+    id: "${entities_id_prefix}_uptime_sensor"
+    update_interval: 5s
+    entity_category: diagnostic
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: "${entities_id_prefix}_uptime_human"
+            state: !lambda |-
+              int seconds = round(id(${entities_id_prefix}_uptime_sensor).get_raw_state());
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + "d " : "") +
+                (hours ? to_string(hours) + "h " : "") +
+                (minutes ? to_string(minutes) + "m " : "") +
+                (to_string(seconds) + "s")
+              ).c_str();
+
+  - platform: template
+    name: "${entities_name_prefix}-Current SNTP Local Time (Timestamp)"
+    id: "${entities_id_prefix}_current_sntp_timestamp_template"
+    device_class: timestamp
+    lambda: return id(current_sntp_timestamp);
+    on_value:
+      then:
+        - text_sensor.template.publish:
+            id: "${entities_id_prefix}_current_sntp_timestamp_human"
+            state: !lambda |-
+              char str[19];
+              strftime(str, sizeof(str), " %Y-%m-%d %H:%M", localtime(&id(current_sntp_timestamp)));
+              return  {str};
+    entity_category: diagnostic
+
+  - platform: template
+    name: "${entities_name_prefix}-Current Home Assistant Local Time (Timestamp)"
+    id: "${entities_id_prefix}_current_homeassistant_timestamp_template"
+    device_class: timestamp
+    lambda: return id(current_homeassistant_timestamp);
+    on_value:
+      then:
+        - text_sensor.template.publish:
+            id: "${entities_id_prefix}_current_homeassistant_timestamp_human"
+            state: !lambda |-
+              char str[19];
+              strftime(str, sizeof(str), " %Y-%m-%d %H:%M", localtime(&id(current_homeassistant_timestamp)));
+              return  {str};
+    entity_category: diagnostic
+
+text_sensor:
+  - platform: template
+    name: "${entities_name_prefix}-Uptime (Human Readable)"
+    id: "${entities_id_prefix}_uptime_human"
+    icon: mdi:clock-start
+    entity_category: diagnostic
+
+  - platform: template
+    name: "${entities_name_prefix}-SNTP Current Local Time (Human Readable)"
+    id: "${entities_id_prefix}_current_sntp_timestamp_human"
+    icon: mdi:clock-start
+    entity_category: diagnostic
+
+  - platform: template
+    name: "${entities_name_prefix}-Home Assistant Current Local Time (Human Readable)"
+    id: "${entities_id_prefix}_current_homeassistant_timestamp_human"
+    icon: mdi:clock-start
+    entity_category: diagnostic

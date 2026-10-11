@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-UPS Load Side Active Power L1"
     id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L1"
     register_type: holding
@@ -11,7 +11,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-UPS Load Side Active Power L2"
     id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L2"
     register_type: holding
@@ -22,7 +22,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-UPS Load Side Active Power L3"
     id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L3"
     register_type: holding
@@ -32,8 +32,38 @@ sensor:
     accuracy_decimals: 0
     value_type: U_WORD
 
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L1"
+    name: "${entities_name_prefix}-UPS Load Side Daily Energy L1"
+    id: "${entities_id_prefix}_UPS_Load_Side_Daily_Energy_L1"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L2"
+    name: "${entities_name_prefix}-UPS Load Side Daily Energy L2"
+    id: "${entities_id_prefix}_UPS_Load_Side_Daily_Energy_L2"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_L3"
+    name: "${entities_name_prefix}-UPS Load Side Daily Energy L3"
+    id: "${entities_id_prefix}_UPS_Load_Side_Daily_Energy_L3"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-UPS Load Side Active Power Total"
     id: "${entities_id_prefix}_UPS_Load_Side_Active_Power_Total"
     register_type: holding

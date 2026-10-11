@@ -1,9 +1,9 @@
 select:
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Control_Mode"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Control Mode"
+    id: "${entities_id_prefix}_Battery_Control_Mode"
     address: 98
     value_type: U_WORD
     optionsmap:
@@ -13,7 +13,7 @@ select:
   # To be completed
   #- platform: modbus_controller
   #  use_write_multiple: true
-  #  modbus_controller_id: ${modbus_controller_id}
+  #  modbus_controller_id: ${modbus_controller_fast}
   #  id: "${entities_id_prefix}_Battery_Lithium_Type"
   #  name: "${entities_name_prefix}-Battery Lithium Type"
   #  address: 223
@@ -26,9 +26,9 @@ select:
 number:
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Equalization_voltage"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Equalization voltage"
+    id: "${entities_id_prefix}_Battery_Equalization_voltage"
     address: 99
     unit_of_measurement: V
     value_type: U_WORD
@@ -38,9 +38,9 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Absorption_voltage"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Absorption voltage"
+    id: "${entities_id_prefix}_Battery_Absorption_voltage"
     address: 100
     unit_of_measurement: V
     value_type: U_WORD
@@ -50,9 +50,9 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Float_voltage"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Float voltage"
+    id: "${entities_id_prefix}_Battery_Float_voltage"
     address: 101
     unit_of_measurement: V
     value_type: U_WORD
@@ -62,9 +62,9 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Equalization_day_cycle"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Equalization Day Cycle"
+    id: "${entities_id_prefix}_Battery_Equalization_day_cycle"
     address: 105
     unit_of_measurement: days
     value_type: U_WORD
@@ -74,9 +74,9 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_Equalization_Time"
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Equalization Time"
+    id: "${entities_id_prefix}_Battery_Equalization_Time"
     address: 106
     unit_of_measurement: days
     value_type: U_WORD
@@ -87,11 +87,11 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
-    id: "${entities_id_prefix}_Battery_capacity"
-    name: "${entities_name_prefix}-Battery capacity"
-    address: 101
-    unit_of_measurement: V
+    modbus_controller_id: ${modbus_controller_fast}
+    name: "${entities_name_prefix}-Battery Capacity"
+    id: "${entities_id_prefix}_Battery_Capacity"
+    address: 102
+    unit_of_measurement: Ah
     value_type: U_WORD
     multiply: 1.0
     min_value: 0.00
@@ -99,29 +99,27 @@ number:
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
+    name: "${entities_name_prefix}-Battery Maximum Charge Current"
     id: "${entities_id_prefix}_Battery_Maximum_Charge_Current"
-    name: "${entities_name_prefix}-Battery_Maximum Charge Current"
     address: 108
     unit_of_measurement: A
     value_type: U_WORD
 
   - platform: modbus_controller
     use_write_multiple: true
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
+    name: "${entities_name_prefix}-Battery Maximum Discharge Current"
     id: "${entities_id_prefix}_Battery_Maximum_Discharge_Current"
-    name: "${entities_name_prefix}-Battery_Maximum Discharge Current"
     address: 109
     unit_of_measurement: A
     value_type: U_WORD
 
 
-
-
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Today Charge of the Battery"
     id: "${entities_id_prefix}_Battery_Today_Charge"
     register_type: holding
@@ -133,9 +131,10 @@ sensor:
     value_type: S_WORD
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Today Discharge of the Battery"
     id: "${entities_id_prefix}_Battery_Today_Discharge"
     register_type: holding
@@ -147,9 +146,10 @@ sensor:
     value_type: S_WORD
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 5
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 5
     name: "${entities_name_prefix}-Total Charge of the Battery"
     id: "${entities_id_prefix}_Battery_Total_charge"
     register_type: holding
@@ -163,8 +163,8 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 5
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 5
     name: "${entities_name_prefix}-Total Discharge of the Battery"
     id: "${entities_id_prefix}_Battery_Total_Discharge"
     register_type: holding
@@ -178,7 +178,7 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Temperature"
     id: "${entities_id_prefix}_Battery_Temperature"
     register_type: holding
@@ -191,7 +191,7 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Voltage"
     id: "${entities_id_prefix}_Battery_Voltage"
     register_type: holding
@@ -204,10 +204,10 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Battery Capacity"
-    id: "${entities_id_prefix}_Battery_Capacity"
+    id: "${entities_id_prefix}_Battery_Capacity_Read"
     register_type: holding
     address: 588
     unit_of_measurement: "%"
@@ -216,9 +216,9 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Output Power"
-    id: "${entities_id_prefix}_Battery_Output_power"
+    id: "${entities_id_prefix}_Battery_Output_Power"
     register_type: holding
     address: 590
     unit_of_measurement: "W"
@@ -227,7 +227,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Battery Output Current"
     id: "${entities_id_prefix}_Battery_Output_Current"
     register_type: holding

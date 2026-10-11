@@ -1,7 +1,7 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Load Total Energy"
     id: "${entities_id_prefix}_Load_Total_Energy"
     register_type: holding
@@ -15,8 +15,8 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Load Daily Energy"
     id: "${entities_id_prefix}_Load_Daily_Energy"
     register_type: holding
@@ -30,7 +30,7 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Voltage Phase L1"
     id: "${entities_id_prefix}_Load_Voltage_Phase_L1"
     register_type: holding
@@ -43,7 +43,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Voltage Phase L2"
     id: "${entities_id_prefix}_Load_Voltage_Phase_L2"
     register_type: holding
@@ -56,7 +56,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Voltage Phase L3"
     id: "${entities_id_prefix}_Load_Voltage_Phase_L3"
     register_type: holding
@@ -70,7 +70,7 @@ sensor:
 
   # To be Tested - It states "No Use" in the Registers References
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Current L1"
     id: "${entities_id_prefix}_Load_Current_L1"
     register_type: holding
@@ -84,7 +84,7 @@ sensor:
 
   # To be Tested - It states "No Use" in the Registers References
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Current L2"
     id: "${entities_id_prefix}_Load_Current_L2"
     register_type: holding
@@ -98,7 +98,7 @@ sensor:
 
   # To be Tested - It states "No Use" in the Registers References
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Current L3"
     id: "${entities_id_prefix}_Load_Current_L3"
     register_type: holding
@@ -111,7 +111,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Active Power L1"
     id: "${entities_id_prefix}_Load_Active_Power_L1"
     register_type: holding
@@ -122,7 +122,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Active Power L2"
     id: "${entities_id_prefix}_Load_Active_Power_L2"
     register_type: holding
@@ -133,7 +133,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Active Power L3"
     id: "${entities_id_prefix}_Load_Active_Power_L3"
     register_type: holding
@@ -143,8 +143,38 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Load_Active_Power_L1"
+    name: "${entities_name_prefix}-Load Daily Energy L1"
+    id: "${entities_id_prefix}_Load_Daily_Energy_L1"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Load_Active_Power_L2"
+    name: "${entities_name_prefix}-Load Daily Energy L2"
+    id: "${entities_id_prefix}_Load_Daily_Energy_L2"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Load_Active_Power_L3"
+    name: "${entities_name_prefix}-Load Daily Energy L3"
+    id: "${entities_id_prefix}_Load_Daily_Energy_L3"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Active Power Total"
     id: "${entities_id_prefix}_Load_Active_Power_Total"
     register_type: holding
@@ -155,7 +185,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Apparent Power Total"
     id: "${entities_id_prefix}_Load_Apparent_Power_Total"
     register_type: holding
@@ -166,7 +196,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Load Frequency"
     id: "${entities_id_prefix}_Load_Frequency"
     register_type: holding

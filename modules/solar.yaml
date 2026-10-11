@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Power PV1"
     id: "${entities_id_prefix}_Solar_Power_PV1"
     register_type: holding
@@ -11,7 +11,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Power PV2"
     id: "${entities_id_prefix}_Solar_Power_PV2"
     register_type: holding
@@ -22,7 +22,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Voltage PV1"
     id: "${entities_id_prefix}_Solar_Voltage_PV1"
     register_type: holding
@@ -35,7 +35,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Voltage PV2"
     id: "${entities_id_prefix}_Solar_Voltage_PV2"
     register_type: holding
@@ -48,7 +48,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Current PV1"
     id: "${entities_id_prefix}_Solar_Current_PV1"
     register_type: holding
@@ -61,7 +61,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Current PV2"
     id: "${entities_id_prefix}_Solar_Current_PV2"
     register_type: holding
@@ -74,7 +74,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Solar Daily Production PV"
     id: "${entities_id_prefix}_Solar_Daily_Production_PV"
     register_type: holding
@@ -87,41 +87,65 @@ sensor:
       - multiply: 0.1
     value_type: U_WORD
 
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+  # The Registry isn't sending any Information
+  # - platform: modbus_controller
+  #   modbus_controller_id: ${modbus_controller_fast}
+  #   name: "${entities_name_prefix}-Solar Daily Production PV1"
+  #   id: "${entities_id_prefix}_Solar_Daily_Production_PV1"
+  #   register_type: holding
+  #   address: 530
+  #   unit_of_measurement: "kWh"
+  #   state_class: "total_increasing"
+  #   device_class: energy
+  #   accuracy_decimals: 1
+  #   filters:
+  #     - multiply: 0.1
+  #  value_type: U_WORD
+
+  # Replace by simple Integration
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Solar_Power_PV1"
     name: "${entities_name_prefix}-Solar Daily Production PV1"
     id: "${entities_id_prefix}_Solar_Daily_Production_PV1"
-    register_type: holding
-    address: 530
-    unit_of_measurement: "kWh"
-    state_class: "total_increasing"
-    device_class: energy
-    accuracy_decimals: 1
     filters:
-      - multiply: 0.1
-    value_type: U_WORD
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
 
-  - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+  # The Registry isn't sending any Information
+  #- platform: modbus_controller
+  #  modbus_controller_id: ${modbus_controller_fast}
+  #  name: "${entities_name_prefix}-Solar Daily Production PV2"
+  #  id: "${entities_id_prefix}_Solar_Daily_Production_PV2"
+  #  register_type: holding
+  #  address: 531
+  #  unit_of_measurement: "kWh"
+  #  state_class: "total_increasing"
+  #  device_class: energy
+  #  accuracy_decimals: 1
+  #  filters:
+  #    - multiply: 0.1
+  #  value_type: U_WORD
+
+  # Replace by simple Integration
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Solar_Power_PV2"
     name: "${entities_name_prefix}-Solar Daily Production PV2"
     id: "${entities_id_prefix}_Solar_Daily_Production_PV2"
-    register_type: holding
-    address: 531
-    unit_of_measurement: "kWh"
-    state_class: "total_increasing"
-    device_class: energy
-    accuracy_decimals: 1
     filters:
-      - multiply: 0.1
-    value_type: U_WORD
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_slow}
     name: "${entities_name_prefix}-Solar Total Production PV"
     id: "${entities_id_prefix}_Solar_Total_Production_PV"
     register_type: holding
     address: 534
-    skip_updates: 10
+    # skip_updates: 10
     unit_of_measurement: "kWh"
     state_class: "total_increasing"
     device_class: energy

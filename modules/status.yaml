@@ -1,7 +1,7 @@
 text_sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     bitmask: 0
     register_type: holding
     address: 500
@@ -9,7 +9,7 @@ text_sensor:
     id: "${entities_id_prefix}_Status_Running_Status"
     name: "${entities_name_prefix}-Status - Running Status"
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("standby");
         case 1: return std::string("selfcheck");
@@ -22,8 +22,8 @@ text_sensor:
 
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning1"
     id: "${entities_id_prefix}_Status_Warning1"
     register_type: holding
@@ -32,8 +32,8 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning2"
     id: "${entities_id_prefix}_Status_Warning2"
     register_type: holding
@@ -42,8 +42,8 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Warning3"
     id: "${entities_id_prefix}_Status_Warning3"
     register_type: holding
@@ -52,8 +52,8 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Error1"
     id: "${entities_id_prefix}_Status_Error1"
     register_type: holding
@@ -62,8 +62,8 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Error2"
     id: "${entities_id_prefix}_Status_Error2"
     register_type: holding
@@ -72,8 +72,8 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 2
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 2
     name: "${entities_name_prefix}-Status - Error3"
     id: "${entities_id_prefix}_Status_Error3"
     register_type: holding
@@ -82,7 +82,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Status - Failure Status of Communication Board"
     id: "${entities_id_prefix}_Status_Failure_Status_of_Communication_Board"
     register_type: holding

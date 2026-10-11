@@ -2,6 +2,11 @@
 
 esphome:
   name: ${name}
+  build_flags:
+  - -DBOARD_HAS_PSRAM
+  # - -DARDUINO_USB_CDC_ON_BOOT=1
+  - -DCONFIG_ARDUINO_LOOP_STACK_SIZE=32768
+  # - -mfix-esp32-psram-cache-issue
   platformio_options:
 #    board_upload.maximum_ram_size: 524288
 #    board_upload.flash_size: 16MB
@@ -28,11 +33,7 @@ esphome:
 #    board_build.psram_type: opi
 
 #    board_build.arduino.memory_type: opi_opi #
-    build_flags:
-      - -DBOARD_HAS_PSRAM
-#      - -DARDUINO_USB_CDC_ON_BOOT=1
-      - -DCONFIG_ARDUINO_LOOP_STACK_SIZE=32768
-#      - -mfix-esp32-psram-cache-issue
+
   comment: ${device_description}
   project:
     name: !secret project_name

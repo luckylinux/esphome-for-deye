@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L1"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L1"
     register_type: holding
@@ -13,7 +13,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L2"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L2"
     register_type: holding
@@ -26,7 +26,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Voltage L3"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Voltage_L3"
     register_type: holding
@@ -39,7 +39,7 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Current L1"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L1"
     register_type: holding
@@ -52,7 +52,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Current L2"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L2"
     register_type: holding
@@ -65,12 +65,12 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Phase Current L3"
     id: "${entities_id_prefix}_Inverter_Output_Phase_Current_L3"
     register_type: holding
     address: 632
-    unit_of_measurement: "V"
+    unit_of_measurement: "A"
     state_class: "measurement"
     accuracy_decimals: 0
     filters:
@@ -78,7 +78,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Active Power L1"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_L1"
     register_type: holding
@@ -89,7 +89,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Active Power L2"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_L2"
     register_type: holding
@@ -100,7 +100,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Active Power L3"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_L3"
     register_type: holding
@@ -110,8 +110,38 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Inverter_Output_Active_Power_L1"
+    name: "${entities_name_prefix}-Inverter Output Daily Energy L1"
+    id: "${entities_id_prefix}_Inverter_Output_Daily_Energy_L1"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Inverter_Output_Active_Power_L2"
+    name: "${entities_name_prefix}-Inverter Output Daily Energy L2"
+    id: "${entities_id_prefix}_Inverter_Output_Daily_Energy_L2"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Inverter_Output_Active_Power_L3"
+    name: "${entities_name_prefix}-Inverter Output Daily Energy L3"
+    id: "${entities_id_prefix}_Inverter_Output_Daily_Energy_L3"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Active Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Active_Power_Total"
     register_type: holding
@@ -122,7 +152,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Inverter Output Apparent Power Total"
     id: "${entities_id_prefix}_Inverter_Output_Apparent_Power_Total"
     register_type: holding
@@ -133,8 +163,8 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "${entities_name_prefix}-Inverter-Frequency"
+    modbus_controller_id: ${modbus_controller_fast}
+    name: "${entities_name_prefix}-Inverter Frequency"
     id: "${entities_id_prefix}_Inverter_Frequency"
     register_type: holding
     address: 638

@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Current L1"
     id: "${entities_id_prefix}_Out_of_Grid_Current_L1"
     register_type: holding
@@ -13,7 +13,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Current L2"
     id: "${entities_id_prefix}_Out_of_Grid_Current_L2"
     register_type: holding
@@ -26,7 +26,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Current L3"
     id: "${entities_id_prefix}_Out_of_Grid_Current_L3"
     register_type: holding
@@ -39,7 +39,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Active Power L1"
     id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L1"
     register_type: holding
@@ -50,7 +50,7 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Active Power L2"
     id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L2"
     register_type: holding
@@ -61,8 +61,8 @@ sensor:
     value_type: S_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    name: "${entities_name_prefix}-Out-of-Grid Active_Power L3"
+    modbus_controller_id: ${modbus_controller_fast}
+    name: "${entities_name_prefix}-Out-of-Grid Active Power L3"
     id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L3"
     register_type: holding
     address: 618
@@ -71,8 +71,38 @@ sensor:
     accuracy_decimals: 0
     value_type: S_WORD
 
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L1"
+    name: "${entities_name_prefix}-Out-of-Grid Daily Energy L1"
+    id: "${entities_id_prefix}_Out_of_Grid_Daily_Energy_L1"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L2"
+    name: "${entities_name_prefix}-Out-of-Grid Daily Energy L2"
+    id: "${entities_id_prefix}_Out_of_Grid_Daily_Energy_L2"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
+  - platform: total_daily_energy
+    power_id: "${entities_id_prefix}_Out_of_Grid_Active_Power_L3"
+    name: "${entities_name_prefix}-Out-of-Grid Daily Energy L3"
+    id: "${entities_id_prefix}_Out_of_Grid_Daily_Energy_L3"
+    filters:
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+    state_class: total_increasing
+
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Active Power Total"
     id: "${entities_id_prefix}_Out_of_Grid_Active_Power_Total"
     register_type: holding
@@ -83,7 +113,7 @@ sensor:
     value_type: S_WORD
   
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
+    modbus_controller_id: ${modbus_controller_fast}
     name: "${entities_name_prefix}-Out-of-Grid Apparent Power Total"
     id: "${entities_id_prefix}_Out_of_Grid_Apparent_Power_Total"
     register_type: holding

@@ -1,7 +1,7 @@
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 1
+    modbus_controller_id: ${modbus_controller_fast}
+    # skip_updates: 1
     name: "${entities_name_prefix} - Advanced Register 178"
     id: "${entities_id_prefix}_Advanced_Register_178"
     register_type: read
@@ -12,8 +12,8 @@ sensor:
 binary_sensor:
   # It's not fully clear what bit 0 & bit 1 enable or disable
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Function Enable" # bit 0 & 1
     id: "${entities_id_prefix}_Advanced_Function_Enable"
     register_type: holding
@@ -25,8 +25,8 @@ binary_sensor:
                  # Use bitmask = 0x1
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Generator Peak Shaving Enable" # bit 2 & 3
     id: "${entities_id_prefix}_Advanced_Generator_Peak_Shaving_Enable"
     register_type: holding
@@ -38,8 +38,8 @@ binary_sensor:
                  # Use bitmask = 0x4
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - Grid Peak Shaving Enable" # bit 4 & 5
     id: "${entities_id_prefix}_Advanced_Grid_Peak_Shaving_Enable"
     register_type: holding
@@ -51,8 +51,8 @@ binary_sensor:
                   # Use bitmask = 0x10
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - On Grid Always On Enable" # bit 6 & 7
     id: "${entities_id_prefix}_Advanced_On_Grid_Always_On_Enable"
     register_type: holding
@@ -64,8 +64,8 @@ binary_sensor:
                   # Use bitmask = 0x40
   
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - External Relay" # bit 8 & 9
     id: "${entities_id_prefix}_Advanced_External_Relay"
     register_type: holding
@@ -78,8 +78,8 @@ binary_sensor:
 
 
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id}
-    skip_updates: 10
+    modbus_controller_id: ${modbus_controller_slow}
+    # skip_updates: 10
     name: "${entities_name_prefix}-Advanced - BMS Err-Stop" # bit 10 & 11
     id: "${entities_id_prefix}_Advanced_BMS_Err_Stop"
     register_type: holding

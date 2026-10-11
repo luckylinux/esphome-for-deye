@@ -16,8 +16,14 @@ modbus:
 # flow_control_pin: 4 #for use when you use a rs485 board without auto flow control. Like the rs485 max board.
 
 modbus_controller:
-  - id: ${modbus_controller_id}
+  - id: ${modbus_controller_fast}
     address: 0x1
     modbus_id: modbus1
     setup_priority: -10
     update_interval: 15sec
+
+  - id: ${modbus_controller_slow}
+    address: 0x1
+    modbus_id: modbus1
+    setup_priority: -10
+    update_interval: 150sec
